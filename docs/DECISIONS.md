@@ -915,22 +915,6 @@ Status: APPROVED DECISION
 
 Exact UI layout remains open.
 
-### D-071 — Sector State Can Show Strategic Information
-
-Status: APPROVED DECISION
-
-The global map may expose relevant sector information such as:
-
-- controlling faction;
-- threat level;
-- important facility/object type;
-- active anomaly/world event;
-- faction conflict;
-- temporary trader/caravan;
-- special raid opportunity.
-
-Exact UI and information-visibility rules remain open.
-
 ### D-072 — Player Can Influence Sector Control Directly and Indirectly
 
 Status: APPROVED DECISION
@@ -1112,8 +1096,6 @@ Status: OPEN QUESTION
 Need owner approval for exact treatment of:
 
 - exact AP cost of magazine replacement;
-- armor repair;
-- armor plate use;
 - anti-rad use;
 - equipment swapping;
 - aiming;
@@ -1126,6 +1108,9 @@ Currently approved:
 - loading individual cartridges into a magazine costs 0 AP;
 - removing individual cartridges from a magazine costs 0 AP;
 - individual cartridge loading/unloading does not advance world time under the current free-action principle.
+- Armor Plate use costs 0 AP and does not advance world time.
+- Improvised armor repair costs 0 AP and does not advance world time.
+- Armor Repair Kit use costs 0 AP and does not advance world time.
 
 Do not silently assign AP costs.
 
@@ -1420,6 +1405,8 @@ Status: OPEN QUESTION
 - Exact map layout.
 - Sector icons.
 - Faction colors.
+- Presentation of approved faction sector control.
+- Whether proposed rich strategic sector information is shown.
 - Event markers.
 - Information visibility.
 - Filters.
@@ -1450,6 +1437,22 @@ Later investigate a system using:
 - configurable content placement.
 
 This was inspired by reference research but is NOT an approved ISOTOMB architecture.
+
+### P-004 — Rich Strategic Sector Information
+
+Status: PROPOSAL
+
+Proposal:
+The global map may additionally show:
+
+- threat level;
+- important facility/object type;
+- active anomaly/world event;
+- faction conflict;
+- temporary trader/caravan;
+- special raid opportunity.
+
+Exact information visibility and UI remain open.
 
 ## Reference Notes
 
