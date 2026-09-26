@@ -473,7 +473,7 @@ Exact equipment slot layouts and item lists remain open.
 
 ### D-034 — Magazine Reloading Uses AP, Magazine Loading Does Not
 
-Status: APPROVED DECISION WITH OPEN BALANCE DETAILS
+Status: APPROVED DECISION
 
 - Replacing/swapping the weapon magazine is an AP-consuming combat action.
 - The exact AP cost is not finalized.
@@ -579,7 +579,7 @@ Exact material values and destruction formulas remain open.
 
 Status: APPROVED DECISION
 
-Explosive/area-effect weapons and devices can use a radius measured in grid cells.
+Explosive and area-effect weapons and devices use a radius measured in grid cells.
 
 This includes concepts such as:
 
