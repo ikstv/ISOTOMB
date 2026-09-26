@@ -341,6 +341,608 @@ Status: APPROVED DECISION
 
 Do not declare a mechanic balanced solely because its formula is mathematically correct.
 
+### D-025 — Armor Overflow Damage
+
+Status: APPROVED DECISION
+
+- Armor absorbs incoming damage first.
+- If a hit deals more damage than the target's remaining armor can absorb, the remaining damage continues into HP during the same hit.
+- One remaining point of armor must not automatically absorb an arbitrarily powerful hit.
+- Exact damage formulas, armor penetration formulas, critical hits, and damage-type multipliers remain open.
+
+Example numbers must not be treated as final balance.
+
+### D-026 — Ballistic Performance Depends on Weapon, Caliber, and Ammunition
+
+Status: APPROVED DECISION
+
+Ballistic effectiveness must not depend on weapon alone.
+
+Armor penetration and damage behavior may depend on the combination of:
+
+- weapon;
+- caliber;
+- ammunition type.
+
+Caliber is mechanically meaningful and also determines ammunition compatibility.
+
+Examples:
+
+- different calibers may have different baseline ballistic potential;
+- ammunition of the same caliber may have different penetration/damage characteristics.
+
+Do not create final numerical penetration values yet.
+
+### D-027 — Ammunition Types and Weapon Wear
+
+Status: APPROVED DECISION
+
+- Different ammunition types of the same caliber may affect weapon wear differently.
+- Ammunition choice may therefore trade ballistic performance against equipment durability.
+- Exact wear multipliers and ammunition categories are not finalized.
+
+Do not treat AP/FMJ/HP/subsonic examples discussed during brainstorming as a finalized complete ammunition list.
+
+### D-028 — Weapon and Armor Modification
+
+Status: APPROVED DECISION
+
+- Weapons can be modified/upgraded.
+- Armor can be modified/upgraded.
+- Permanent modification is performed at the base, not during a raid.
+- Available modification capability depends on base progression.
+- Modifications require actual materials/resources recovered through gameplay.
+- A modified item remains the same persistent item with its installed upgrades, current condition, and other state.
+- If an NPC loots a modified weapon or armor item, it receives that same modified item.
+
+Exact upgrade trees and numerical bonuses remain open.
+
+### D-029 — Separate Weapon and Armor Workshops
+
+Status: APPROVED DECISION
+
+The base has two separate progression modules:
+
+- Weapon Workshop
+- Armor Workshop
+
+They follow the same high-level principle:
+
+- higher module progression unlocks more advanced modification capability;
+- upgrades still require appropriate materials;
+- upgrading the facility does not generate materials automatically.
+
+The exact player-facing names may be refined later, but the two systems remain separate.
+
+Do not merge them into one generic workshop without owner approval.
+
+### D-030 — Shared and Specialized Upgrade Materials
+
+Status: APPROVED DECISION
+
+- Some crafting/upgrade materials may be usable across multiple systems.
+- Other materials are specialized for weapon or armor work.
+- Materials must have logical mechanical use rather than functioning as one universal abstract upgrade currency.
+
+Owner example:
+gunpowder-related material may be relevant to ammunition/weapon systems but not to upgrading an armor plate.
+
+Specific final material names and recipes remain open.
+
+### D-031 — All Raid Items Use the Shared Inventory and Weight System
+
+Status: APPROVED DECISION
+
+- Upgrade materials are normal physical loot.
+- They do not go into a separate weightless resource inventory.
+- Weapons, armor, ammunition, magazines, consumables, materials, artifacts, and ordinary loot contribute to carried weight as applicable.
+- Carrying more valuable loot can therefore reduce combat mobility.
+
+Exact inventory layout and stacking rules remain open.
+
+### D-032 — Weight Influences Mobility and Evasion
+
+Status: APPROVED DECISION
+
+- Carried weight affects character mobility.
+- Weight affects Evasion.
+- Heavy load can make a character easier to hit.
+- Equipment and carried loot therefore create a risk/reward trade-off.
+
+Strength may increase comfortable carrying capacity slightly, but Strength must not be treated as the sole or dominant carrying-capacity system.
+
+Exact weight thresholds and formulas remain open.
+
+### D-033 — Backpacks, Chest Rigs, and Armor Are Distinct Equipment
+
+Status: APPROVED DECISION
+
+The equipment system includes distinct concepts for:
+
+- backpack;
+- chest rig / load-bearing equipment;
+- armor vest/body armor.
+
+Backpacks can have different capacities and weights.
+
+Chest rigs provide fast-access equipment functionality rather than being just another generic storage bag.
+
+Armor remains governed by the existing unified armor decision.
+
+Exact equipment slot layouts and item lists remain open.
+
+### D-034 — Magazine Reloading Uses AP, Magazine Loading Does Not
+
+Status: APPROVED DECISION
+
+- Replacing/swapping the weapon magazine is an AP-consuming combat action.
+- The exact AP cost is not finalized.
+- Loading individual cartridges into a magazine costs 0 AP.
+- Removing individual cartridges from a magazine costs 0 AP.
+- Loading/unloading individual cartridges does not advance world time under the current free-action principle.
+- The owner explicitly considers the exact reload-cost design still open to further balancing.
+
+### D-035 — Chest Rig Can Improve Reload Efficiency
+
+Status: APPROVED DECISION
+
+- A chest rig can reduce the AP cost of magazine replacement when the required magazine is stored in an appropriate fast-access location.
+- The benefit should depend on actual equipment/inventory placement, not apply magically to magazines stored deep in a backpack.
+- The previously discussed "-1 AP" is a design example and must NOT yet be stored as a final tuned balance value.
+
+Exact chest-rig layouts and reload modifiers remain open.
+
+### D-036 — Magazines Are Persistent Items
+
+Status: APPROVED DECISION
+
+- Magazines are separate persistent inventory items.
+- Each magazine has its own ammunition state.
+- Magazine capacity and compatibility matter.
+- Reloading swaps actual magazine items rather than consuming an abstract global ammunition counter.
+- A partially used magazine remains partially used.
+- NPCs and player characters use the same magazine/item rules.
+
+Exact magazine families and capacities remain open.
+
+### D-037 — Mixed Ammunition in a Magazine
+
+Status: APPROVED DECISION
+
+- A single compatible magazine may contain multiple ammunition types of the same compatible caliber.
+- The magazine stores the exact cartridge order.
+- The next fired cartridge is determined by that stored order.
+- Loading and unloading cartridges individually can modify that order.
+
+Do not simplify magazines into one ammunition-type label if they contain mixed ammunition.
+
+### D-038 — Magazine Information Knowledge
+
+Status: APPROVED DECISION
+
+- A magazine prepared by the player's stalker may have fully known ammunition information.
+- A newly found or looted magazine does not automatically reveal the exact complete internal cartridge sequence.
+- Initial knowledge may be limited.
+- Inspecting/manually checking the magazine can reveal more information.
+- Exact inspection rules and what information is visible at each knowledge level remain open.
+
+Do not give the player perfect knowledge of every unknown magazine automatically.
+
+### D-039 — Evasion Is Separate from Armor and Cover
+
+Status: APPROVED DECISION
+
+Three concepts must remain mechanically distinct:
+
+- Armor: protection after a hit reaches the character.
+- Evasion: affects how difficult the character is to hit.
+- Cover: physical environmental protection that can intercept/block a shot.
+
+Do not collapse them into one generic defense stat.
+
+### D-040 — Movement Can Improve Evasion
+
+Status: APPROVED DECISION
+
+- Character movement during the player's phase can increase Evasion during the following NPC phase.
+- A mobile character can therefore be harder to hit than a stationary character.
+- Weight/load can reduce this benefit.
+
+Exact scaling, caps, and whether the bonus uses cells moved or AP spent remain open.
+
+### D-041 — Cover Is a Major Firefight Mechanic
+
+Status: APPROVED DECISION
+
+- Cover is a major tactical element of gunfights.
+- Cover is separate from Evasion.
+- Cover physically affects the shot path between shooter and target.
+- Different cover materials may provide different ballistic protection.
+
+Exact hit/cover calculation remains open.
+
+### D-042 — Cover Can Be Penetrated or Destroyed
+
+Status: APPROVED DECISION
+
+- Cover is not universally indestructible.
+- Some cover can be penetrated by sufficiently capable weapon/caliber/ammunition combinations.
+- Some cover can lose durability and eventually be destroyed.
+- Destroyed cover must stop providing its previous protection.
+- Material type influences ballistic resistance.
+
+Some very hard objects may resist ordinary small-arms fire and require heavy weapons/explosives to destroy.
+
+Exact material values and destruction formulas remain open.
+
+### D-043 — Explosive and Area Effects Use Cell Radius
+
+Status: APPROVED DECISION
+
+Explosive and area-effect weapons and devices use a radius measured in grid cells.
+
+This includes concepts such as:
+
+- grenades;
+- mines;
+- grenade-launcher explosives;
+- incendiary devices such as Molotov cocktails.
+
+Effect strength can depend on distance from the center/impact cell.
+
+Exact radii and damage/falloff values are not finalized.
+
+### D-044 — Explosive Effect Falls Off with Distance
+
+Status: APPROVED DECISION
+
+- Effects are strongest near the center.
+- Effect strength decreases with cell distance.
+- Targets outside the effect radius receive no effect from that event unless another mechanic applies.
+- Cover/material interaction with blast, fragments, and fire remains to be designed in detail.
+
+### D-045 — Thrown Grenades Land on the Selected Cell
+
+Status: APPROVED DECISION
+
+- Under the current design, thrown grenades land on the player-selected target cell.
+- Do not add random rolling, bouncing, or scatter to normal grenade placement unless the owner later changes this decision.
+
+Exact throwing range and AP/action rules remain open.
+
+### D-046 — Armor Rating Degrades with Armor Durability
+
+Status: APPROVED DECISION
+
+- Armor has both current durability and an Armor Rating / protection-quality characteristic.
+- Armor Rating is part of the same unified armor system, not a second armor bar.
+- Armor Rating gradually degrades as armor durability becomes heavily damaged.
+- The relationship must not be linear 1:1.
+- Near-full armor should retain most of its protection quality.
+- Heavily damaged armor should provide noticeably worse resistance to penetration.
+- At zero effective armor durability, armor no longer provides its normal protection.
+- Exact thresholds and degradation curve remain open.
+
+### D-047 — Armor Plate Repair
+
+Status: APPROVED DECISION
+
+- Armor Plates restore current Armor only up to the current Max Durability.
+- Armor Plates do not reduce Max Durability.
+- Armor Plates do not repair the permanently lost/red Max Durability portion.
+- Armor Plates do not have a negative Armor Rating penalty merely from being used.
+- Using an Armor Plate costs 0 AP and does not advance world time.
+- Exact repair percentage per plate remains a balance value and is not finalized.
+- The previously discussed "~25%" is an example only.
+
+### D-048 — Improvised Armor Repair
+
+Status: APPROVED DECISION
+
+- Improvised materials found in raids may be used to restore some current Armor.
+- Improvised repair reduces the armor's Max Durability.
+- The lost Max Durability is represented as a permanently damaged/red portion until fully repaired through an approved full-repair method.
+- Improvised repair costs 0 AP and does not advance world time.
+- Exact repair amount and Max Durability loss depend on future balancing.
+- The earlier example of a metal pipe restoring "~15%" while reducing max durability from "100%" to "90%" is illustrative only.
+
+### D-049 — Armor Repair Kit
+
+Status: APPROVED DECISION
+
+- Armor Repair Kit is a rare and expensive repair item.
+- It is lighter and more slot-efficient than carrying many Armor Plates.
+- It can restore current Armor.
+- It can also restore the lost/red Max Durability portion.
+- It can be used during a raid or at the base.
+- It costs 0 AP and does not advance world time.
+- The kit has multiple uses / repair capacity rather than being strictly single-use.
+
+The earlier concept:
+
+- about 3 uses;
+- about 150% total repair capacity;
+
+is a balance example only, not a final tuned value.
+
+### D-050 — Armor Workshop Professional Repair
+
+Status: APPROVED DECISION
+
+- At the base, damaged armor may be left at the Armor Workshop for professional repair.
+- Professional repair can restore lost/red Max Durability.
+- The armor is unavailable while being repaired.
+- The service costs coupons.
+- Repair duration is measured in future raids, not real-world time.
+- The earlier example of 2-3 raids is a balance example only.
+- This service is an alternative to consuming an Armor Repair Kit.
+
+Exact price and repair duration remain open.
+
+### D-051 — Multiple Economic Repair Choices
+
+Status: APPROVED DECISION
+
+The player may face several valid repair choices:
+
+- consume a rare Armor Repair Kit;
+- use Armor Plates for ordinary field repair;
+- use improvised repair at the cost of Max Durability;
+- leave armor at the Armor Workshop and pay coupons;
+- acquire or craft new repair resources;
+- buy repair resources from traders when available.
+
+No single option should automatically dominate all others.
+
+### D-052 — Progressive Crafting System
+
+Status: APPROVED DECISION
+
+- ISOTOMB includes crafting.
+- Crafting capability progresses through base development.
+- Early crafting begins with crude/basic equipment.
+- Higher progression unlocks increasingly advanced equipment.
+- Crafting must require actual materials.
+- Base progression alone must not create items or bypass resource requirements.
+
+The example of a crude single-shot improvised pistol made from pipe-like parts and tape is thematic inspiration, not a mandatory exact item.
+
+### D-053 — Fabrication Workshop
+
+Status: APPROVED DECISION
+
+- Crafting progression is handled through a dedicated base module.
+- Working name: Fabrication Workshop.
+- Higher Fabrication Workshop progression enables more advanced crafting capability.
+- Exact final player-facing name may be refined later.
+
+Do not merge this system into Weapon Workshop or Armor Workshop without owner approval.
+
+### D-054 — Crafting Requires Technology + Facility + Materials
+
+Status: APPROVED DECISION
+
+A craftable advanced item requires:
+
+- sufficient Fabrication Workshop capability;
+- the relevant learned technology;
+- the required physical materials/resources.
+
+Facility level alone does not automatically unlock every recipe.
+
+### D-055 — Tech Datapad
+
+Status: APPROVED DECISION
+
+- Advanced technologies are discovered through physical Tech Datapads found in raids.
+- A Tech Datapad is a persistent physical loot item.
+- A technology does not unlock merely because the player sees or picks up the datapad.
+- The Tech Datapad must be successfully extracted to the base before the technology can be learned.
+- If the carrying stalker dies, the Tech Datapad remains in the persistent sector as loot.
+- A later stalker may recover and extract it.
+- NPCs may loot/move the Tech Datapad under the same shared finite-item rules.
+
+### D-056 — One Datapad Unlocks One Technology
+
+Status: APPROVED DECISION
+
+- One Tech Datapad corresponds to one specific technology/recipe unlock.
+- A single datapad does not unlock an entire technology branch.
+- Technology trees are built from many individual discoveries.
+
+### D-057 — Datapad Knowledge Status
+
+Status: APPROVED DECISION
+
+- The UI must indicate whether the technology on a Tech Datapad is already learned by the player's base.
+- A duplicate datapad remains useful even if the player has already learned that technology.
+- Duplicate datapads may be sold, traded, or given to factions.
+- Exact UI presentation remains open.
+
+### D-058 — Technology Is Not Permanently Missable
+
+Status: APPROVED DECISION
+
+- Main technologies must not become permanently unavailable because one datapad was given away, lost, or acquired by another faction.
+- Relevant Tech Datapads can appear again after the technology enters the appropriate progression/loot pool.
+- Rarity may differ by technology tier.
+- Giving a datapad away can delay the player, but must not permanently lock that technology out of the campaign.
+
+### D-059 — Weapon Technology Branches
+
+Status: APPROVED DECISION
+
+Weapon progression includes distinct technology branches such as:
+
+- pistols;
+- shotguns;
+- assault rifles;
+- sniper rifles;
+- electric weapons.
+
+These are broad category directions.
+Exact item lists and sub-branches remain open.
+
+### D-060 — Late-Game Electric Weapons
+
+Status: APPROVED DECISION
+
+- Electric weapons are a very late-game/high-technology weapon class.
+- They use specialized battery-based ammunition/energy units.
+- They are extremely expensive to acquire/use.
+- They are intended to have exceptionally high penetration.
+- They may penetrate top-tier armor and some heavy cover/walls depending on final balance.
+- They should not become ordinary mid-game equipment.
+
+Exact stats, ammunition system, and penetration rules remain open.
+
+### D-061 — Story Completion Does Not End the Save
+
+Status: APPROVED DECISION
+
+- ISOTOMB has a story with a meaningful ending.
+- Completing the story does not end the save.
+- The player may continue playing afterward.
+- Endgame is intended to be open-ended / effectively endless if the player wishes to continue.
+
+### D-062 — Dynamic Endgame World Events
+
+Status: APPROVED DECISION
+
+Endgame includes dynamic world events that can change sectors and raid conditions.
+
+- Approved examples include anomalous surges and faction conflicts.
+
+Exact event list and frequency remain open.
+
+Events must create meaningful reasons to choose specific sectors, not only increase difficulty numerically.
+
+### D-063 — Faction Power Is Dynamic
+
+Status: APPROVED DECISION
+
+- Faction power changes over time.
+- Technology affects faction power.
+- Faction strength must not be a static fixed number.
+
+### D-064 — Factions Have Technological Specializations
+
+Status: APPROVED DECISION
+
+- Major factions have different technology specializations.
+- Specialization provides an advantage in particular research/technology branches.
+- Specialization is not an absolute restriction.
+- Factions may later acquire technologies outside their specialty through research, trade, captured resources, Tech Datapads, or events.
+
+Exact faction identities and specializations remain open.
+
+### D-065 — Five Major Factions at Initial Design Scope
+
+Status: APPROVED DECISION
+
+- Initial design scope includes 5 major factions.
+- More may be added later.
+- All 5 begin at technology level 1.
+- No faction begins with an arbitrary overall technology-level advantage.
+
+Do not invent faction names yet unless separately approved.
+
+### D-066 — Faction Research Is Hybrid
+
+Status: APPROVED DECISION
+
+Factions may progress technologically without direct player help, but progression must come from world/system causes such as:
+
+- controlled research facilities;
+- controlled industrial facilities;
+- resource strength;
+- research progress;
+- Tech Datapads;
+- trade;
+- captures from other factions;
+- global/story events.
+
+Do not grant technologies simply because a hidden timer elapsed.
+
+### D-067 — Player Can Influence Faction Technology
+
+Status: APPROVED DECISION
+
+- The player may sell or give Tech Datapads to factions.
+- Doing so can accelerate that faction's technological progress.
+- A faction that receives a technology may later field related weapons, armor, or equipment.
+- Giving a datapad to a faction does not permanently remove that technology from the player's campaign; another copy may later be found.
+
+### D-068 — Story-Gated Technology Eras
+
+Status: APPROVED DECISION
+
+- The world may have story/progression gates that control when very advanced technology enters the global progression pool.
+- Factions cannot randomly obtain endgame technologies far earlier than intended.
+- These gates exist to preserve progression and balance.
+
+Exact eras and story gates remain open.
+
+### D-069 — Faction Control Cannot Permanently Eliminate a Major Faction
+
+Status: APPROVED DECISION
+
+- A major faction may lose most external sectors.
+- Each major faction retains at least one protected base/stronghold/enclave.
+- A weakened faction has a path to recover over time.
+- Major factions are not permanently deleted from the campaign simulation.
+
+### D-070 — Global Map Shows Faction Sector Control
+
+Status: APPROVED DECISION
+
+- The global map visibly shows which faction controls each sector.
+- Sector control changes are visible to the player.
+- The map is part of strategic decision-making, not only a mission-selection menu.
+
+Exact UI layout remains open.
+
+### D-072 — Player Can Influence Sector Control Directly and Indirectly
+
+Status: APPROVED DECISION
+
+Player influence over faction control is mixed.
+
+Direct influence may include:
+
+- faction contracts;
+- raids supporting a faction;
+- future story missions.
+
+Indirect influence may include:
+
+- resource trade;
+- Tech Datapads;
+- technology transfer;
+- economic support;
+- weakening rival forces.
+
+Exact capture rules and mission structures remain open.
+
+### D-073 — Faction Trade Prices Depend on Relations
+
+Status: APPROVED DECISION
+
+- Trade prices and/or markups can depend on faction relations.
+- Poor relations may produce very large markups.
+- The previously discussed "up to +90%" is a balance example only, not a finalized value.
+- Better relations may improve prices.
+
+Exact price formula remains open.
+
+### D-074 — Temporary Faction Traders
+
+Status: APPROVED DECISION
+
+- Factions may temporarily visit/trade with the player's base or become available for a limited number of raids.
+- Pricing may depend on faction relations.
+- Exact visit duration and trader rotation rules remain open.
+
 ## Superseded Decisions
 
 ### S-001 — One Action Equals One Turn
@@ -453,10 +1055,12 @@ Open questions are NOT approved decisions and must not be answered by the agent.
 Status: OPEN QUESTION
 
 - How damage interacts with armor and HP.
-- Whether excess damage passes through destroyed armor in the same hit.
+- Exact Armor Rating degradation thresholds and curve as armor durability decreases.
 - Armor penetration.
 - Critical hits.
 - Damage types.
+- Exact armor overflow calculation after D-025.
+- Damage-type multipliers.
 
 ### OQ-002 — Exact AP Model
 
@@ -478,14 +1082,22 @@ Status: OPEN QUESTION
 
 Need owner approval for exact treatment of:
 
-- reloading;
-- armor repair;
-- armor plate use;
+- exact AP cost of magazine replacement;
 - anti-rad use;
 - equipment swapping;
 - aiming;
 - opening doors;
 - explicit wait action.
+
+Currently approved:
+
+- magazine replacement consumes AP, with exact cost still open;
+- loading individual cartridges into a magazine costs 0 AP;
+- removing individual cartridges from a magazine costs 0 AP;
+- individual cartridge loading/unloading does not advance world time under the current free-action principle.
+- Armor Plate use costs 0 AP and does not advance world time.
+- Improvised armor repair costs 0 AP and does not advance world time.
+- Armor Repair Kit use costs 0 AP and does not advance world time.
 
 Do not silently assign AP costs.
 
@@ -548,11 +1160,11 @@ Status: OPEN QUESTION
 
 Status: OPEN QUESTION
 
-- Difference between armor plates and repair kits.
-- Repair amount.
-- Limits.
 - Item compatibility.
-- Whether repair has condition loss or diminishing returns.
+- Mechanical repair amounts for Armor Plates, Armor Repair Kits, and improvised repair.
+- Interaction with Armor Rating.
+- Whether any repair option has diminishing returns.
+- Exact Max Durability behavior where still unresolved.
 
 ### OQ-010 — Item Deterioration
 
@@ -579,12 +1191,13 @@ Status: OPEN QUESTION
 
 Status: OPEN QUESTION
 
-- Faction count.
 - Names.
-- Reputation.
-- Contracts.
-- Trading.
-- Territory control, if any.
+- Contract types, generation, and rewards.
+- Exact reputation model.
+- Exact trading rules.
+- Exact specialization definitions.
+- Exact technology progression.
+- Exact sector-control rules.
 
 ### OQ-013 — Anomalies and Artifacts
 
@@ -634,18 +1247,159 @@ Status: OPEN QUESTION
 - Number of weapons/items.
 - Which mechanics are included initially.
 
+### OQ-017 — Carry Weight and Evasion Formula
+
+Status: OPEN QUESTION
+
+- Base carrying capacity.
+- Comfortable load.
+- Overweight thresholds.
+- Strength contribution.
+- Backpack contribution.
+- Evasion penalties.
+- Movement/AP penalties.
+- Maximum overload behavior.
+
+### OQ-018 — Weapon and Armor Upgrade Trees
+
+Status: OPEN QUESTION
+
+- Workshop progression levels.
+- Upgrade categories.
+- Prerequisites.
+- Material recipes.
+- Modification limits.
+- Trade-offs.
+- Whether modifications can be removed/replaced.
+- Repair interaction with modified items.
+
+### OQ-019 — Magazine and Reload Rules
+
+Status: OPEN QUESTION
+
+- Exact AP cost of magazine replacement.
+- Chest-rig reload modifiers.
+- Magazine compatibility.
+- Magazine condition/wear if any.
+- Chambered-round behavior.
+- Tactical reload behavior.
+- What happens to removed magazines when inventory/rig is full.
+- Exact magazine inspection information.
+
+### OQ-020 — Cover and Destruction
+
+Status: OPEN QUESTION
+
+- Cover material categories.
+- Ballistic resistance.
+- Cover durability.
+- Penetration calculation.
+- Residual bullet damage after penetration.
+- Destruction thresholds.
+- Interaction with line of sight.
+
+### OQ-021 — Explosive Resolution
+
+Status: OPEN QUESTION
+
+- Exact cell radius per device.
+- Damage falloff curve.
+- Fragmentation.
+- Blast interaction with cover/walls.
+- Fire duration.
+- Mine trigger rules.
+- Grenade/grenade-launcher AP costs.
+- Explosive damage to armor, characters, objects, and environment.
+
+### OQ-022 — Armor Repair Economy
+
+Status: OPEN QUESTION
+
+- Armor Repair Kit capacity/charges where relevant to resource economy.
+- Armor Workshop coupon cost.
+- Armor Workshop repair duration.
+- Relative rarity/availability of repair resources.
+- Crafting/acquisition economics for repair resources.
+
+### OQ-023 — Crafting Economy
+
+Status: OPEN QUESTION
+
+- Exact Fabrication Workshop progression.
+- Craft time, if any.
+- Recipe costs.
+- Material categories.
+- Whether crafting uses coupons in addition to materials.
+- Item quality/condition on crafted items.
+- Whether crafted items can have variants.
+
+### OQ-024 — Tech Datapad Distribution
+
+Status: OPEN QUESTION
+
+- Exact loot-pool gating.
+- Drop rarity.
+- Sector/facility associations.
+- Duplicate frequency.
+- Whether some datapads are faction-specific.
+- Exact UI markers for learned/unknown tech.
+
+### OQ-025 — Faction Technology Simulation
+
+Status: OPEN QUESTION
+
+- Exact research-progress model.
+- Specialization bonuses.
+- Facility effects.
+- Resource effects.
+- Time/raid-cycle resolution.
+- Technology adoption delay after learning.
+- Field-equipment rollout rate.
+- Candidate contributors to faction power requiring explicit approval: resources, controlled sectors, losses, research/production capability, and trade/player influence.
+
+### OQ-026 — Faction Warfare and Sector Capture
+
+Status: OPEN QUESTION
+
+- Exact rules for attacking/defending sectors.
+- Combat-resolution model outside player raids.
+- Sector-value calculation.
+- Recovery mechanics for weakened factions.
+- Protected enclave behavior.
+- Direct player mission effects.
+
+### OQ-027 — Endgame World Events
+
+Status: OPEN QUESTION
+
+- Event generation.
+- Frequency.
+- Duration.
+- Stacking.
+- Player notification.
+- Anomaly changes.
+- Rewards.
+- Interaction with faction control.
+- Interaction with persistent sectors.
+- Candidate event types such as quarantines/blockades, lost expeditions, and anomaly storms.
+
+### OQ-028 — Global Map UX
+
+Status: OPEN QUESTION
+
+- Exact map layout.
+- Sector icons.
+- Faction colors.
+- Presentation of approved faction sector control.
+- Whether proposed rich strategic sector information is shown.
+- Event markers.
+- Information visibility.
+- Filters.
+- History of control changes.
+
 ## Proposals
 
 Proposals are discussed ideas, not approved decisions.
-
-### P-001 — Excess Armor Damage Transfers to HP
-
-Status: PROPOSAL
-
-Proposal:
-If an attack exceeds remaining armor durability, excess damage may transfer to HP in the same hit.
-
-This is NOT approved yet.
 
 ### P-002 — Manual Test Sector Before Procedural Generation
 
@@ -668,6 +1422,22 @@ Later investigate a system using:
 - configurable content placement.
 
 This was inspired by reference research but is NOT an approved ISOTOMB architecture.
+
+### P-004 — Rich Strategic Sector Information
+
+Status: PROPOSAL
+
+Proposal:
+The global map may additionally show:
+
+- threat level;
+- important facility/object type;
+- active anomaly/world event;
+- faction conflict;
+- temporary trader/caravan;
+- special raid opportunity.
+
+Exact information visibility and UI remain open.
 
 ## Reference Notes
 
