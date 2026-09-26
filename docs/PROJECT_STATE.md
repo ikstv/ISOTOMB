@@ -106,6 +106,8 @@ For exact approved wording, proposal status, and open questions, use `docs/DECIS
 - Global HP remains shared while body-part hit locations carry localized wounds.
 - Body-part coverage remains within the unified armor system.
 - Armor Rating and damage-type resistances are distinct systems.
+- Ordinary bullet hits now have four approved starting-model choices in `docs/DECISIONS.md`: deterministic penetration fraction, proportional armor wear, fully restored-maximum condition normalization, and nonlinear Armor Rating degradation.
+- These formulas are approved starting models for balance evaluation, not validated final gameplay balance; they do not replace the unified armor system or shared global HP pool.
 - Resistances use numeric percentages and may be positive, zero, or negative, with bounded caps.
 - Blunt Trauma, Bleeding, and Pain are approved design directions.
 - Persistent wounds require time/resources for base recovery.
@@ -124,8 +126,8 @@ For exact wording and status, see `docs/DECISIONS.md`.
 Major unresolved areas include:
 
 - Exact Unity version and technical baseline.
-- Exact damage, armor, penetration comparison/fraction, durability-loss, critical-hit, and non-bullet damage-type formulas.
-- Exact Blunt Trauma formula, body-part/wound resolution, bleeding behavior, resistance stacking/caps/rounding, and Pain thresholds/AP curve.
+- Exact damage calibration, `k`, rounding, coverage aggregation, critical-hit, and non-bullet damage-type formulas.
+- Blunt Trauma boundary behavior and formula, body-part/wound resolution, bleeding behavior, resistance stacking/caps/rounding, and Pain thresholds/AP curve.
 - Exact AP values and remaining action costs.
 - Radiation/armor thresholds and formulas.
 - NPC AI priorities and phase ordering details.
@@ -162,7 +164,7 @@ These are intentional design gates, not technical failures.
 
 ## Next Recommended Task
 
-Continue Superpowers brainstorming for OQ-001 by defining the deterministic penetration-versus-Armor-Rating comparison and the resulting HP-directed damage fraction for ordinary bullet hits.
+Continue Superpowers brainstorming for OQ-001 to resolve the Blunt Trauma-versus-weak-penetration boundary without double-counting damage or silently changing approved rules.
 
 ## Handoff Rule
 
