@@ -348,7 +348,11 @@ Status: APPROVED DECISION
 - Armor absorbs incoming damage first.
 - If a hit deals more damage than the target's remaining armor can absorb, the remaining damage continues into HP during the same hit.
 - One remaining point of armor must not automatically absorb an arbitrarily powerful hit.
+- D-102 and D-105 refine this for ordinary bullet hits: penetration-derived HP damage may occur before complete armor depletion.
+- Penetration-derived HP damage and overflow from the same hit must not count the same damage twice.
 - Exact damage formulas, armor penetration formulas, critical hits, and damage-type multipliers remain open.
+
+D-025 remains active for same-hit armor overflow. It no longer means complete armor depletion is required before every ordinary bullet hit can damage HP.
 
 Example numbers must not be treated as final balance.
 
@@ -951,6 +955,8 @@ Status: APPROVED DECISION
 - A sufficiently strong non-penetrating impact may still cause limited Blunt Trauma.
 - Blunt Trauma from ordinary non-penetrating firearm impacts does not cause knockdown or hard stun.
 - Blunt Trauma is not calculated merely from how close the attack was to penetrating.
+- D-107 defines Blunt Trauma as an alternative stopped-hit outcome for ordinary bullet hits.
+- A failed penetration check does not cancel valid same-hit armor-breaking overflow if armor cannot absorb the remaining damage.
 
 Exact formula remains open.
 
@@ -1003,8 +1009,9 @@ Status: APPROVED DECISION
 - Resistances may be positive, zero, or negative.
 - Positive resistance reduces vulnerability/effect.
 - Negative resistance represents increased vulnerability.
+- For ordinary bullet HP damage, the percentage formula and post-armor application order are defined by D-106.
 
-Exact damage-conversion formula remains open. A resistance percentage does not by itself define an identical percentage change to final damage.
+Exact damage-conversion formulas for other damage types remain open. A resistance percentage does not by itself define an identical percentage change to every final damage/effect type.
 
 ### D-081 — Resistance Sources
 
@@ -1229,6 +1236,175 @@ Medical consumables are divided by purpose rather than one universal item:
 
 Exact item names, counts, charges, wound reductions, HP restoration values, and rarity remain open. AP/time costs remain open only for medical items not already covered by an approved decision. Medkit use remains 0 AP and does not advance world time under D-017. Splitting medical items by purpose does not revoke that rule or automatically assign the same cost to every new medical item. Specialized burn kits and additional specialist medicines are not approved.
 
+The D-102 through D-108 rules apply to ordinary bullet hits. Do not automatically extend this model to explosions and fragmentation, fire, radiation, electric weapons, melee, or other special damage sources.
+
+### D-102 — Penetration Does Not Require Armor Depletion
+
+Status: APPROVED DECISION
+
+- A penetrating bullet can damage global HP while the target's shared armor durability remains above zero.
+- Penetration and complete armor destruction are different results.
+- A penetrating hit also damages armor, but need not destroy it.
+- Armor depletion is not the only route for bullet damage to HP.
+- The approved overflow principle is retained: damage that armor cannot absorb passes toward HP during the same hit.
+- Penetration and overflow must not count the same damage twice.
+
+Exact penetration-to-HP distribution and durability-loss coefficients remain open.
+
+### D-103 — Deterministic Armor Penetration
+
+Status: APPROVED DECISION
+
+- Given identical relevant inputs, armor penetration has the same result.
+- Do not add a separate random penetration roll after a hit.
+- This does not remove randomness from hit accuracy or Evasion.
+- Penetration depends on the approved weapon/caliber/ammunition combination and the applicable effective Armor Rating.
+- Cover attenuation, when applicable, is resolved before the projectile reaches the character's armor.
+
+Exact comparison formula, threshold behavior, and treatment of equal penetration/protection values remain open.
+
+### D-104 — Defense State Is Evaluated Before Each Hit
+
+Status: APPROVED DECISION
+
+- Evaluate armor penetration using armor state immediately before that hit.
+- Use the target's applicable effective resistance from before that hit.
+- Damage caused by the hit does not retroactively lower its own penetration threshold or recalculate its own resistance.
+- Apply resulting condition changes for subsequent hits.
+- A later bullet uses the state left by earlier resolved hits.
+- Armor-breaking overflow still reaches HP during the current hit.
+
+A pre-hit defense snapshot does not prevent cover from reducing this projectile's damage or penetration before it reaches armor.
+
+This decision does not define shotgun-pellet simultaneity or other special multi-impact behavior.
+
+### D-105 — Shared Bullet-Damage Budget
+
+Status: APPROVED DECISION
+
+- Start with the ordinary bullet damage that reaches armor after any preceding cover interaction.
+- Penetration determines the portion directed toward HP.
+- The remaining portion is presented to armor for absorption.
+- Armor absorbs only what its remaining capacity allows.
+- Any unabsorbed part of that remaining portion becomes overflow.
+- Damage directed toward HP is:
+  penetration portion + overflow.
+- Count each portion once.
+- Higher penetration can allow a larger share to pass through; it does not create extra starting damage by itself.
+
+For the ordinary penetration/overflow branch, the pre-resistance accounting is:
+
+incoming bullet damage =
+armor-absorbed portion + damage directed toward HP
+
+This is game-damage accounting, not a claim about physical energy.
+
+Do not equate absorbed damage with durability points at a fixed 1:1 conversion. The actual durability-loss conversion remains open.
+
+Illustrative example only:
+
+- 60 damage reaches armor.
+- The penetration calculation directs 20 toward HP.
+- The remaining 40 is presented to armor.
+- Armor can absorb 15.
+- Overflow is 25.
+- Total directed toward HP is 45, before resistance.
+
+These example values are not tuned weapon or armor statistics.
+
+### D-106 — Ordinary Bullet Resistance Applies Once After Armor
+
+Status: APPROVED DECISION
+
+For ordinary bullet damage:
+
+HP damage =
+damage directed toward HP * (1 - effective resistance / 100)
+
+- Apply the applicable damage-type resistance exactly once.
+- Apply it after penetration/absorption/overflow distribution.
+- Effective resistance is the relevant combined, bounded value from the character's pre-hit state.
+- Positive resistance reduces this HP damage.
+- Negative resistance increases this HP damage.
+- This resistance application does not reduce the already resolved armor wear or absorption demand.
+- Do not apply the same resistance again to incoming bullet damage, armor absorption, and final HP loss.
+
+Illustrative examples:
+
+- 45 pre-resistance HP damage with +20% resistance gives 36.
+- With 0% resistance, it gives 45.
+- With -20% resistance, it gives 54.
+
+The percentage formula is approved.
+The example resistance values are not approved equipment stats.
+
+Keep open:
+
+- source-stacking details;
+- numerical upper/lower caps;
+- exact overcap/debuff calculation;
+- rounding and numerical precision;
+- resistance loss as equipment deteriorates;
+- formulas for other damage types.
+
+Do not invent those details in this task.
+
+### D-107 — Blunt Trauma Is an Alternative Stopped-Hit Outcome
+
+Status: APPROVED DECISION
+
+For ordinary bullet hits:
+
+- Blunt Trauma may occur when armor completely stops the bullet, with no penetration-derived or overflow damage directed toward HP.
+- Do not add separate Blunt Trauma damage on top of penetration damage or armor-breaking overflow from that same hit.
+- Determine eligibility before applying the final bullet resistance.
+- A penetrating/overflow hit does not become a Blunt Trauma hit merely because resistance or rounding reduces final bullet HP damage to zero.
+- A projectile fully stopped by cover does not inflict character Blunt Trauma through this mechanism.
+
+Preserve the existing D-075/D-076 constraints:
+
+- no knockdown or hard stun from this Blunt Trauma mechanism;
+- trauma is not based merely on closeness to the penetration threshold;
+- armor type and condition affect impact protection.
+
+Exact trauma thresholds, damage, and the interaction between Trauma Reduction and the relevant resistance remain open.
+Do not count the same protection twice.
+
+### D-108 — Ordinary Bullet Hit-Resolution Order
+
+Status: APPROVED DECISION
+
+Record the following canonical conceptual order:
+
+1. Pre-hit inputs
+   Read the current projectile characteristics and relevant pre-hit cover, armor, and character-defense state.
+
+2. Potential character hit
+   Accuracy/Evasion determine whether the shot is directed at the character. Determine the potential body-part hit location.
+   This is not confirmation that intervening cover was passed.
+
+3. Cover along the path
+   Resolve intervening cover before character armor.
+   Cover may stop the projectile or pass it with attenuated characteristics.
+   A projectile fully stopped by cover does not damage the character's armor or HP.
+
+4. Armor and penetration
+   Apply the relevant body-region protection within the existing unified armor system.
+   Resolve deterministic penetration and the shared damage budget.
+   Include unabsorbed overflow once.
+
+5. Health-damage branch
+   Apply the ordinary-bullet resistance once to damage directed toward HP.
+   For a fully armor-stopped hit, Blunt Trauma may apply instead, subject to D-107 and its still-unresolved calculation.
+
+6. Consequences
+   Apply the resulting durability and HP changes and resolve possible local wounds/associated states under their approved rules.
+   Subsequent hits use the updated state.
+
+This establishes conceptual ordering, not an implementation API or a completed set of formulas.
+
+Keep unresolved miss trajectories, accidental secondary hits, exact hit-location weighting, wound generation, and special multi-impact behavior. Do not decide them implicitly.
+
 ## Superseded Decisions
 
 ### S-001 — One Action Equals One Turn
@@ -1340,21 +1516,25 @@ Open questions are NOT approved decisions and must not be answered by the agent.
 
 Status: OPEN QUESTION
 
-- How damage interacts with armor and HP.
+- Ordinary-bullet conceptual order is resolved by D-108.
+- Ordinary bullets may damage HP before complete armor depletion under D-102.
+- Ordinary-bullet penetration is deterministic under D-103.
+- Ordinary-bullet penetration uses pre-hit defense state under D-104.
+- Ordinary-bullet penetration and overflow use a non-duplicated shared damage budget under D-105.
 - Exact Armor Rating degradation thresholds and curve as armor durability decreases.
-- Armor penetration.
 - Critical hits.
 - Damage types.
-- Exact armor overflow calculation after D-025.
-- Damage-type multipliers.
-- Exact hit-resolution order.
 - Exact penetration formula and Armor Rating comparison.
-- Armor Durability loss on penetrating versus non-penetrating hits.
-- HP damage after penetration and whether residual penetration affects it.
+- Exact penetration-to-HP distribution/fraction curve.
+- Conversion from absorption to Armor Durability loss.
+- Armor Durability loss differences on penetrating versus non-penetrating hits.
 - Blunt Trauma formula.
-- Interaction with damage-type resistance.
+- Interaction between Trauma Reduction and relevant resistance.
 - Body-part hit weighting.
-- Exact damage types.
+- Critical-hit behavior.
+- Wound generation from resolved hits.
+- Formulas for damage types other than ordinary bullets.
+- Exact damage-type taxonomy and multipliers.
 
 ### OQ-002 — Exact AP Model
 
@@ -1718,12 +1898,14 @@ Status: OPEN QUESTION
 
 Status: OPEN QUESTION
 
-- Exact percentage formula.
+- Ordinary-bullet HP damage uses the D-106 percentage formula after armor.
 - Stacking order.
 - Upper and lower caps.
 - Overcap behavior.
-- Penetration versus resistance ordering.
+- Rounding and numerical precision.
+- Condition-dependent resistance contributions.
 - Which damage types receive which resistances.
+- Resistance behavior and formulas for damage types other than ordinary bullets.
 
 ### OQ-032 — Pain
 

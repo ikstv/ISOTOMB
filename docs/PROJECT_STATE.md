@@ -111,6 +111,11 @@ For exact approved wording, proposal status, and open questions, use `docs/DECIS
 - Persistent wounds require time/resources for base recovery.
 - Food, water, alcohol, energy drinks, and temporary raid states are approved survival-consumable directions.
 - Medical items are specialized by purpose, including bleeding control, HP restoration, wound treatment, pain suppression, and radiation management.
+- Ordinary bullet hit resolution has an approved conceptual order: pre-hit inputs, potential character hit, cover along the path, armor/penetration, health-damage or stopped-hit trauma branch, then consequences.
+- Ordinary bullet penetration is deterministic and uses the pre-hit defense state.
+- Ordinary bullet damage uses a shared damage budget so penetration-derived HP damage and overflow are not duplicated.
+- Ordinary bullet resistance applies once after armor distribution.
+- Blunt Trauma is an alternative fully stopped-hit branch, not extra damage on top of penetration or armor-breaking overflow.
 
 For exact wording and status, see `docs/DECISIONS.md`.
 
@@ -119,8 +124,8 @@ For exact wording and status, see `docs/DECISIONS.md`.
 Major unresolved areas include:
 
 - Exact Unity version and technical baseline.
-- Exact damage, armor, penetration, critical-hit, and damage-type formulas.
-- Exact hit-resolution order, Blunt Trauma formula, body-part/wound resolution, bleeding behavior, resistance conversion/stacking, and Pain thresholds/AP curve.
+- Exact damage, armor, penetration comparison/fraction, durability-loss, critical-hit, and non-bullet damage-type formulas.
+- Exact Blunt Trauma formula, body-part/wound resolution, bleeding behavior, resistance stacking/caps/rounding, and Pain thresholds/AP curve.
 - Exact AP values and remaining action costs.
 - Radiation/armor thresholds and formulas.
 - NPC AI priorities and phase ordering details.
@@ -157,7 +162,7 @@ These are intentional design gates, not technical failures.
 
 ## Next Recommended Task
 
-Continue `OQ-001 — Exact Damage Formula` by deciding the canonical hit-resolution order and the relationship between penetration, Armor Durability loss, and residual HP damage.
+Continue Superpowers brainstorming for OQ-001 by defining the deterministic penetration-versus-Armor-Rating comparison and the resulting HP-directed damage fraction for ordinary bullet hits.
 
 ## Handoff Rule
 
