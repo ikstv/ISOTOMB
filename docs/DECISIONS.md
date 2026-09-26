@@ -625,7 +625,8 @@ Status: APPROVED DECISION
 - Near-full armor should retain most of its protection quality.
 - Heavily damaged armor should provide noticeably worse resistance to penetration.
 - At zero effective armor durability, armor no longer provides its normal protection.
-- Exact thresholds and degradation curve remain open.
+- The approved starting degradation curve is defined by D-111 and D-112.
+- Balance evaluation remains outstanding; this starting model is not validated as final gameplay balance.
 
 ### D-047 — Armor Plate Repair
 
@@ -638,6 +639,7 @@ Status: APPROVED DECISION
 - Using an Armor Plate costs 0 AP and does not advance world time.
 - Exact repair percentage per plate remains a balance value and is not finalized.
 - The previously discussed "~25%" is an example only.
+- Armor Rating condition normalization for repaired armor uses D-111/D-112.
 
 ### D-048 — Improvised Armor Repair
 
@@ -649,6 +651,7 @@ Status: APPROVED DECISION
 - Improvised repair costs 0 AP and does not advance world time.
 - Exact repair amount and Max Durability loss depend on future balancing.
 - The earlier example of a metal pipe restoring "~15%" while reducing max durability from "100%" to "90%" is illustrative only.
+- Armor Rating condition normalization after reduced Max Durability uses D-111/D-112.
 
 ### D-049 — Armor Repair Kit
 
@@ -1249,7 +1252,8 @@ Status: APPROVED DECISION
 - The approved overflow principle is retained: damage that armor cannot absorb passes toward HP during the same hit.
 - Penetration and overflow must not count the same damage twice.
 
-Exact penetration-to-HP distribution and durability-loss coefficients remain open.
+The starting penetration fraction and proportional wear model are defined by D-109 and D-110.
+Exact k and equipment statistics remain unfinalized.
 
 ### D-103 — Deterministic Armor Penetration
 
@@ -1261,7 +1265,7 @@ Status: APPROVED DECISION
 - Penetration depends on the approved weapon/caliber/ammunition combination and the applicable effective Armor Rating.
 - Cover attenuation, when applicable, is resolved before the projectile reaches the character's armor.
 
-Exact comparison formula, threshold behavior, and treatment of equal penetration/protection values remain open.
+The starting comparison, equality rule, and penetration fraction are defined by D-109.
 
 ### D-104 — Defense State Is Evaluated Before Each Hit
 
@@ -1299,7 +1303,7 @@ armor-absorbed portion + damage directed toward HP
 
 This is game-damage accounting, not a claim about physical energy.
 
-Do not equate absorbed damage with durability points at a fixed 1:1 conversion. The actual durability-loss conversion remains open.
+Do not equate absorbed damage with durability points at a fixed 1:1 conversion. The proportional starting wear model is defined by D-110.
 
 Illustrative example only:
 
@@ -1404,6 +1408,172 @@ Record the following canonical conceptual order:
 This establishes conceptual ordering, not an implementation API or a completed set of formulas.
 
 Keep unresolved miss trajectories, accidental secondary hits, exact hit-location weighting, wound generation, and special multi-impact behavior. Do not decide them implicitly.
+
+### D-109 — Starting Penetration-Fraction Formula
+
+Status: APPROVED DECISION
+
+Approved starting model for balance evaluation; not validated as final gameplay balance.
+
+Shared notation for D-109 through D-112:
+
+- `D` = ordinary bullet damage reaching armor after cover interaction.
+- `P` = effective projectile Penetration after cover interaction.
+- `U` = current armor durability immediately before the hit.
+- `M_full` = durability maximum when this armor is fully restored.
+- `M_available` = currently available maximum after any red-capacity loss.
+- `s` = normalized armor condition.
+- `A0` = nominal Armor Rating at full condition.
+- `A` = applicable condition-adjusted Armor Rating for this calculation.
+- `k` = durability spent per unit of absorbed damage.
+- `R` = applicable effective, bounded, pre-hit resistance percentage.
+
+For the mathematical examples: `D >= 0`, `P >= 0`, `A0 >= 0`, `M_full > 0`, `0 <= U <= M_available <= M_full`, and `k > 0`. These are variable definitions and formula domains, not equipment statistics or a new armor-layer architecture.
+
+Do not evaluate division by zero. No-armor cases or invalid-input handling must not be silently turned into new gameplay rules.
+
+For ordinary bullet hits:
+
+`f = 0` when `P <= A`
+
+`f = 1 - A / P` when `P > A`
+
+- `f` is the fraction of incoming damage directed toward HP by penetration, not a probability.
+- Equality favors protection: `P = A` produces no penetration.
+- `P = 0` produces no penetration; do not divide by zero.
+- The formula uses the applicable pre-hit Armor Rating.
+- Cover has already modified the projectile where appropriate.
+- There is no additional random penetration roll.
+- Failed penetration does not cancel valid armor-breaking overflow.
+- Higher penetration does not create additional incoming damage.
+
+Illustrative checks with `A = 40`:
+
+- `P = 40` -> `f = 0`
+- `P = 50` -> `f = 0.20`
+- `P = 60` -> `f = 1/3`
+- `P = 80` -> `f = 0.50`
+- `P = 160` -> `f = 0.75`
+
+These values illustrate the approved formula. They are not approved weapon or armor statistics.
+
+### D-110 — Proportional Armor Wear and Absorption Capacity
+
+Status: APPROVED DECISION
+
+Approved starting model for balance evaluation; not validated as final gameplay balance.
+
+`durability_loss = absorbed_damage * k`
+
+`absorption_capacity = U / k`
+
+- Wear depends on damage actually absorbed.
+- Armor cannot absorb more than its remaining capacity.
+- Damage it cannot absorb becomes same-hit overflow under D-105.
+- The actual value of `k` remains a balance parameter.
+- `k` must be positive.
+- A single shared test coefficient is sufficient for initial evaluation; do not invent per-ammunition or per-material tables.
+- `k = 0.5` and `k = 1` were examples, not finalized defaults.
+- Do not confuse incoming damage, absorbed damage, and durability points: they are not automatically interchangeable 1:1.
+
+For ordinary bullet hits:
+
+```
+penetration_damage = D * f
+armor_demand = D * (1 - f)
+absorbed_damage = min(armor_demand, U / k)
+overflow = armor_demand - absorbed_damage
+
+HP_directed_before_resistance = penetration_damage + overflow
+durability_loss = absorbed_damage * k
+U_after = U - durability_loss
+```
+
+`HP_loss = HP_directed_before_resistance * (1 - R / 100)`
+
+uses the final resistance formula from D-106. Resistance is applied once after distribution.
+
+Preserve D-107: when armor fully stops a hit, Blunt Trauma may apply instead. A zero ordinary-bullet HP component does not automatically mean zero total HP loss in that alternative branch.
+
+Do not invent the Blunt Trauma formula here.
+
+### D-111 — Armor Condition Uses the Fully Restored Maximum
+
+Status: APPROVED DECISION
+
+Approved starting model for balance evaluation; not validated as final gameplay balance.
+
+`s = U / M_full`
+
+- Calculate condition for Armor Rating using `M_full`.
+- Do not replace the denominator with `M_available` after improvised repair reduces the available maximum.
+- Filling armor to its reduced available maximum does not make it equivalent to fully restored armor.
+- Armor Plates still restore current durability only up to the available maximum; they do not repair the red portion.
+- This normalization introduces no additional item-use penalty for Armor Plates.
+
+Illustrative example:
+
+- `M_full = 100`
+- `M_available = 70`
+- `U = 70`
+- Condition is `70/100 = 0.70`, not `70/70 = 1`.
+
+Do not change repair costs, repair amounts, or the approved methods for restoring lost maximum durability.
+
+### D-112 — Starting Armor Rating Degradation Curve
+
+Status: APPROVED DECISION
+
+Approved starting model for balance evaluation; not validated as final gameplay balance.
+
+`A = A0 * (2*s - s*s)`
+
+- Use `s` from D-111.
+- Full condition preserves nominal Armor Rating.
+- Small durability losses reduce Rating relatively little.
+- Heavily damaged armor has substantially lower Rating.
+- At zero current durability, this armor's condition-adjusted Rating is zero.
+- Use the pre-hit value for the current hit under D-104.
+- Recalculate the changed state for subsequent hits.
+- This curve is not a resistance percentage or an absorption fraction.
+- Do not automatically apply it to Trauma Reduction or resistances.
+
+Verification values:
+
+- `s = 1.00` -> Rating multiplier = `1.00`
+- `s = 0.70` -> Rating multiplier = `0.91`
+- `s = 0.50` -> Rating multiplier = `0.75`
+- `s = 0.25` -> Rating multiplier = `0.4375`
+- `s = 0.10` -> Rating multiplier = `0.19`
+- `s = 0.00` -> Rating multiplier = `0.00`
+
+Illustrative example:
+
+- `A0 = 40, M_full = 100, M_available = 70, U = 70`
+- `A = 36.4`
+
+The reduced maximum is not silently treated as full restoration. No final armor statistics are established by this example.
+
+Combined worked example (all inputs and results are illustrative):
+
+- Inputs: `D = 60`, `P = 60`, `A0 = 40`, `M_full = 100`, `M_available = 100`, `U = 50`, `k = 0.5`, `R = 20%`.
+- `s = 0.5`.
+- `A_before = 30`.
+- `f = 0.5`.
+- `penetration_damage = 30`.
+- `armor_demand = 30`.
+- `absorption_capacity = 100`.
+- `absorbed_damage = 30`.
+- `durability_loss = 15`.
+- `U_after = 35`.
+- `overflow = 0`.
+- `HP_directed_before_resistance = 30`.
+- `HP_loss = 24`.
+- `A_for_next_hit = 23.1`.
+
+Do not retroactively apply `A_for_next_hit` to the current hit. Do not add Blunt Trauma to this penetrating hit. Do not generalize this example to other attack types.
+
+Separate absorption-stage check (all inputs and results are illustrative): `D = 60`, `f = 1/3`, `U = 15`, `k = 0.5` -> armor demand `40`, capacity `30`, absorbed `30`, overflow `10`, pre-resistance HP-directed damage `30`, durability loss `15`, remaining durability `0`. This check assumes `f` has already been calculated and does not establish upstream armor parameters.
 
 ## Superseded Decisions
 
@@ -1521,12 +1691,13 @@ Status: OPEN QUESTION
 - Ordinary-bullet penetration is deterministic under D-103.
 - Ordinary-bullet penetration uses pre-hit defense state under D-104.
 - Ordinary-bullet penetration and overflow use a non-duplicated shared damage budget under D-105.
-- Exact Armor Rating degradation thresholds and curve as armor durability decreases.
-- Critical hits.
-- Damage types.
-- Exact penetration formula and Armor Rating comparison.
-- Exact penetration-to-HP distribution/fraction curve.
-- Conversion from absorption to Armor Durability loss.
+- The approved starting penetration fraction is defined by D-109.
+- The approved starting proportional armor wear and absorption capacity are defined by D-110.
+- The approved starting Armor Rating condition normalization and degradation curve are defined by D-111/D-112.
+- The four rules above are resolved starting-model choices, not validated final gameplay balance.
+- Numerical calibration and exact `k` remain open.
+- Rounding and precision remain open.
+- Coverage aggregation within the unified armor system remains open.
 - Armor Durability loss differences on penetrating versus non-penetrating hits.
 - Blunt Trauma formula.
 - Interaction between Trauma Reduction and relevant resistance.
@@ -1535,6 +1706,12 @@ Status: OPEN QUESTION
 - Wound generation from resolved hits.
 - Formulas for damage types other than ordinary bullets.
 - Exact damage-type taxonomy and multipliers.
+
+Known cross-branch balance risk:
+
+- At the penetration threshold, `f` approaches zero from above. Because Blunt Trauma is mutually exclusive with penetration/overflow, a stopped-hit trauma result could exceed damage from a marginally penetrating hit.
+- This is unresolved and does not justify adding minimum penetration damage, adding Blunt Trauma to penetrating hits, changing D-109, or removing the trauma branch.
+- The complete model is not claimed to be monotonic or balanced.
 
 ### OQ-002 — Exact AP Model
 
@@ -1636,9 +1813,9 @@ Status: OPEN QUESTION
 
 - Item compatibility.
 - Mechanical repair amounts for Armor Plates, Armor Repair Kits, and improvised repair.
-- Interaction with Armor Rating.
 - Whether any repair option has diminishing returns.
-- Exact Max Durability behavior where still unresolved.
+- Exact red-capacity / Max Durability loss amounts where still unresolved.
+- Any still-unresolved interaction between repair method and item condition not already answered by D-111/D-112.
 
 ### OQ-010 — Item Deterioration
 
