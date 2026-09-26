@@ -341,6 +341,275 @@ Status: APPROVED DECISION
 
 Do not declare a mechanic balanced solely because its formula is mathematically correct.
 
+### D-025 — Armor Overflow Damage
+
+Status: APPROVED DECISION
+
+- Armor absorbs incoming damage first.
+- If a hit deals more damage than the target's remaining armor can absorb, the remaining damage continues into HP during the same hit.
+- One remaining point of armor must not automatically absorb an arbitrarily powerful hit.
+- Exact damage formulas, armor penetration formulas, critical hits, and damage-type multipliers remain open.
+
+Example numbers must not be treated as final balance.
+
+### D-026 — Ballistic Performance Depends on Weapon, Caliber, and Ammunition
+
+Status: APPROVED DECISION
+
+Ballistic effectiveness must not depend on weapon alone.
+
+Armor penetration and damage behavior may depend on the combination of:
+
+- weapon;
+- caliber;
+- ammunition type.
+
+Caliber is mechanically meaningful and also determines ammunition compatibility.
+
+Examples:
+
+- different calibers may have different baseline ballistic potential;
+- ammunition of the same caliber may have different penetration/damage characteristics.
+
+Do not create final numerical penetration values yet.
+
+### D-027 — Ammunition Types and Weapon Wear
+
+Status: APPROVED DECISION
+
+- Different ammunition types of the same caliber may affect weapon wear differently.
+- Ammunition choice may therefore trade ballistic performance against equipment durability.
+- Exact wear multipliers and ammunition categories are not finalized.
+
+Do not treat AP/FMJ/HP/subsonic examples discussed during brainstorming as a finalized complete ammunition list.
+
+### D-028 — Weapon and Armor Modification
+
+Status: APPROVED DECISION
+
+- Weapons can be modified/upgraded.
+- Armor can be modified/upgraded.
+- Permanent modification is performed at the base, not during a raid.
+- Available modification capability depends on base progression.
+- Modifications require actual materials/resources recovered through gameplay.
+- A modified item remains the same persistent item with its installed upgrades, current condition, and other state.
+- If an NPC loots a modified weapon or armor item, it receives that same modified item.
+
+Exact upgrade trees and numerical bonuses remain open.
+
+### D-029 — Separate Weapon and Armor Workshops
+
+Status: APPROVED DECISION
+
+The base has two separate progression modules:
+
+- Weapon Workshop
+- Armor Workshop
+
+They follow the same high-level principle:
+
+- higher module progression unlocks more advanced modification capability;
+- upgrades still require appropriate materials;
+- upgrading the facility does not generate materials automatically.
+
+The exact player-facing names may be refined later, but the two systems remain separate.
+
+Do not merge them into one generic workshop without owner approval.
+
+### D-030 — Shared and Specialized Upgrade Materials
+
+Status: APPROVED DECISION
+
+- Some crafting/upgrade materials may be usable across multiple systems.
+- Other materials are specialized for weapon or armor work.
+- Materials must have logical mechanical use rather than functioning as one universal abstract upgrade currency.
+
+Owner example:
+gunpowder-related material may be relevant to ammunition/weapon systems but not to upgrading an armor plate.
+
+Specific final material names and recipes remain open.
+
+### D-031 — All Raid Items Use the Shared Inventory and Weight System
+
+Status: APPROVED DECISION
+
+- Upgrade materials are normal physical loot.
+- They do not go into a separate weightless resource inventory.
+- Weapons, armor, ammunition, magazines, consumables, materials, artifacts, and ordinary loot contribute to carried weight as applicable.
+- Carrying more valuable loot can therefore reduce combat mobility.
+
+Exact inventory layout and stacking rules remain open.
+
+### D-032 — Weight Influences Mobility and Evasion
+
+Status: APPROVED DECISION
+
+- Carried weight affects character mobility.
+- Weight affects Evasion.
+- Heavy load can make a character easier to hit.
+- Equipment and carried loot therefore create a risk/reward trade-off.
+
+Strength may increase comfortable carrying capacity slightly, but Strength must not be treated as the sole or dominant carrying-capacity system.
+
+Exact weight thresholds and formulas remain open.
+
+### D-033 — Backpacks, Chest Rigs, and Armor Are Distinct Equipment
+
+Status: APPROVED DECISION
+
+The equipment system includes distinct concepts for:
+
+- backpack;
+- chest rig / load-bearing equipment;
+- armor vest/body armor.
+
+Backpacks can have different capacities and weights.
+
+Chest rigs provide fast-access equipment functionality rather than being just another generic storage bag.
+
+Armor remains governed by the existing unified armor decision.
+
+Exact equipment slot layouts and item lists remain open.
+
+### D-034 — Magazine Reloading Uses AP, Magazine Loading Does Not
+
+Status: APPROVED DECISION WITH OPEN BALANCE DETAILS
+
+- Replacing/swapping the weapon magazine is an AP-consuming combat action.
+- The exact AP cost is not finalized.
+- Loading individual cartridges into a magazine costs 0 AP.
+- Removing individual cartridges from a magazine costs 0 AP.
+- Loading/unloading individual cartridges does not advance world time under the current free-action principle.
+- The owner explicitly considers the exact reload-cost design still open to further balancing.
+
+### D-035 — Chest Rig Can Improve Reload Efficiency
+
+Status: APPROVED DECISION
+
+- A chest rig can reduce the AP cost of magazine replacement when the required magazine is stored in an appropriate fast-access location.
+- The benefit should depend on actual equipment/inventory placement, not apply magically to magazines stored deep in a backpack.
+- The previously discussed "-1 AP" is a design example and must NOT yet be stored as a final tuned balance value.
+
+Exact chest-rig layouts and reload modifiers remain open.
+
+### D-036 — Magazines Are Persistent Items
+
+Status: APPROVED DECISION
+
+- Magazines are separate persistent inventory items.
+- Each magazine has its own ammunition state.
+- Magazine capacity and compatibility matter.
+- Reloading swaps actual magazine items rather than consuming an abstract global ammunition counter.
+- A partially used magazine remains partially used.
+- NPCs and player characters use the same magazine/item rules.
+
+Exact magazine families and capacities remain open.
+
+### D-037 — Mixed Ammunition in a Magazine
+
+Status: APPROVED DECISION
+
+- A single compatible magazine may contain multiple ammunition types of the same compatible caliber.
+- The magazine stores the exact cartridge order.
+- The next fired cartridge is determined by that stored order.
+- Loading and unloading cartridges individually can modify that order.
+
+Do not simplify magazines into one ammunition-type label if they contain mixed ammunition.
+
+### D-038 — Magazine Information Knowledge
+
+Status: APPROVED DECISION
+
+- A magazine prepared by the player's stalker may have fully known ammunition information.
+- A newly found or looted magazine does not automatically reveal the exact complete internal cartridge sequence.
+- Initial knowledge may be limited.
+- Inspecting/manually checking the magazine can reveal more information.
+- Exact inspection rules and what information is visible at each knowledge level remain open.
+
+Do not give the player perfect knowledge of every unknown magazine automatically.
+
+### D-039 — Evasion Is Separate from Armor and Cover
+
+Status: APPROVED DECISION
+
+Three concepts must remain mechanically distinct:
+
+- Armor: protection after a hit reaches the character.
+- Evasion: affects how difficult the character is to hit.
+- Cover: physical environmental protection that can intercept/block a shot.
+
+Do not collapse them into one generic defense stat.
+
+### D-040 — Movement Can Improve Evasion
+
+Status: APPROVED DECISION
+
+- Character movement during the player's phase can increase Evasion during the following NPC phase.
+- A mobile character can therefore be harder to hit than a stationary character.
+- Weight/load can reduce this benefit.
+
+Exact scaling, caps, and whether the bonus uses cells moved or AP spent remain open.
+
+### D-041 — Cover Is a Major Firefight Mechanic
+
+Status: APPROVED DECISION
+
+- Cover is a major tactical element of gunfights.
+- Cover is separate from Evasion.
+- Cover physically affects the shot path between shooter and target.
+- Different cover materials may provide different ballistic protection.
+
+Exact hit/cover calculation remains open.
+
+### D-042 — Cover Can Be Penetrated or Destroyed
+
+Status: APPROVED DECISION
+
+- Cover is not universally indestructible.
+- Some cover can be penetrated by sufficiently capable weapon/caliber/ammunition combinations.
+- Some cover can lose durability and eventually be destroyed.
+- Destroyed cover must stop providing its previous protection.
+- Material type influences ballistic resistance.
+
+Some very hard objects may resist ordinary small-arms fire and require heavy weapons/explosives to destroy.
+
+Exact material values and destruction formulas remain open.
+
+### D-043 — Explosive and Area Effects Use Cell Radius
+
+Status: APPROVED DECISION
+
+Explosive/area-effect weapons and devices can use a radius measured in grid cells.
+
+This includes concepts such as:
+
+- grenades;
+- mines;
+- grenade-launcher explosives;
+- incendiary devices such as Molotov cocktails.
+
+Effect strength can depend on distance from the center/impact cell.
+
+Exact radii and damage/falloff values are not finalized.
+
+### D-044 — Explosive Effect Falls Off with Distance
+
+Status: APPROVED DECISION
+
+- Effects are strongest near the center.
+- Effect strength decreases with cell distance.
+- Targets outside the effect radius receive no effect from that event unless another mechanic applies.
+- Cover/material interaction with blast, fragments, and fire remains to be designed in detail.
+
+### D-045 — Thrown Grenades Land on the Selected Cell
+
+Status: APPROVED DECISION
+
+- Under the current design, thrown grenades land on the player-selected target cell.
+- Do not add random rolling, bouncing, or scatter to normal grenade placement unless the owner later changes this decision.
+
+Exact throwing range and AP/action rules remain open.
+
 ## Superseded Decisions
 
 ### S-001 — One Action Equals One Turn
@@ -453,10 +722,11 @@ Open questions are NOT approved decisions and must not be answered by the agent.
 Status: OPEN QUESTION
 
 - How damage interacts with armor and HP.
-- Whether excess damage passes through destroyed armor in the same hit.
 - Armor penetration.
 - Critical hits.
 - Damage types.
+- Exact armor overflow calculation after D-025.
+- Damage-type multipliers.
 
 ### OQ-002 — Exact AP Model
 
@@ -478,7 +748,7 @@ Status: OPEN QUESTION
 
 Need owner approval for exact treatment of:
 
-- reloading;
+- exact AP cost of magazine replacement;
 - armor repair;
 - armor plate use;
 - anti-rad use;
@@ -486,6 +756,13 @@ Need owner approval for exact treatment of:
 - aiming;
 - opening doors;
 - explicit wait action.
+
+Currently approved:
+
+- magazine replacement consumes AP, with exact cost still open;
+- loading individual cartridges into a magazine costs 0 AP;
+- removing individual cartridges from a magazine costs 0 AP;
+- individual cartridge loading/unloading does not advance world time under the current free-action principle.
 
 Do not silently assign AP costs.
 
@@ -634,18 +911,73 @@ Status: OPEN QUESTION
 - Number of weapons/items.
 - Which mechanics are included initially.
 
+### OQ-017 — Carry Weight and Evasion Formula
+
+Status: OPEN QUESTION
+
+- Base carrying capacity.
+- Comfortable load.
+- Overweight thresholds.
+- Strength contribution.
+- Backpack contribution.
+- Evasion penalties.
+- Movement/AP penalties.
+- Maximum overload behavior.
+
+### OQ-018 — Weapon and Armor Upgrade Trees
+
+Status: OPEN QUESTION
+
+- Workshop progression levels.
+- Upgrade categories.
+- Prerequisites.
+- Material recipes.
+- Modification limits.
+- Trade-offs.
+- Whether modifications can be removed/replaced.
+- Repair interaction with modified items.
+
+### OQ-019 — Magazine and Reload Rules
+
+Status: OPEN QUESTION
+
+- Exact AP cost of magazine replacement.
+- Chest-rig reload modifiers.
+- Magazine compatibility.
+- Magazine condition/wear if any.
+- Chambered-round behavior.
+- Tactical reload behavior.
+- What happens to removed magazines when inventory/rig is full.
+- Exact magazine inspection information.
+
+### OQ-020 — Cover and Destruction
+
+Status: OPEN QUESTION
+
+- Cover material categories.
+- Ballistic resistance.
+- Cover durability.
+- Penetration calculation.
+- Residual bullet damage after penetration.
+- Destruction thresholds.
+- Interaction with line of sight.
+
+### OQ-021 — Explosive Resolution
+
+Status: OPEN QUESTION
+
+- Exact cell radius per device.
+- Damage falloff curve.
+- Fragmentation.
+- Blast interaction with cover/walls.
+- Fire duration.
+- Mine trigger rules.
+- Grenade/grenade-launcher AP costs.
+- Explosive damage to armor, characters, objects, and environment.
+
 ## Proposals
 
 Proposals are discussed ideas, not approved decisions.
-
-### P-001 — Excess Armor Damage Transfers to HP
-
-Status: PROPOSAL
-
-Proposal:
-If an attack exceeds remaining armor durability, excess damage may transfer to HP in the same hit.
-
-This is NOT approved yet.
 
 ### P-002 — Manual Test Sector Before Procedural Generation
 
