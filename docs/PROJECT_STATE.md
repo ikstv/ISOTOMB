@@ -106,6 +106,8 @@ For exact approved wording, proposal status, and open questions, use `docs/DECIS
 - Global HP remains shared while body-part hit locations carry localized wounds.
 - Body-part coverage remains within the unified armor system.
 - Armor Rating and damage-type resistances are distinct systems.
+- Ordinary bullet hits now have four approved starting-model choices in `docs/DECISIONS.md`: deterministic penetration fraction, proportional armor wear, fully restored-maximum condition normalization, and nonlinear Armor Rating degradation.
+- These formulas are approved starting models for balance evaluation, not validated final gameplay balance; they do not replace the unified armor system or shared global HP pool.
 - Resistances use numeric percentages and may be positive, zero, or negative, with bounded caps.
 - Blunt Trauma, Bleeding, and Pain are approved design directions.
 - Persistent wounds require time/resources for base recovery.
@@ -115,11 +117,7 @@ For exact approved wording, proposal status, and open questions, use `docs/DECIS
 - Ordinary bullet penetration is deterministic and uses the pre-hit defense state.
 - Ordinary bullet damage uses a shared damage budget so penetration-derived HP damage and overflow are not duplicated.
 - Ordinary bullet resistance applies once after armor distribution.
-- Blunt Trauma is an alternative fully stopped-hit branch, not extra damage on top of penetration or armor-breaking overflow.
-- The approved stopped-bullet Blunt Trauma model causes no direct global HP damage and no automatic Bleeding.
-- TraumaLoad is based on absorbed damage and Trauma Reduction; Trauma Reduction degrades with armor condition.
-- TraumaLoad drives Pain and local wound severity; sub-threshold TraumaLoad does not accumulate in a hidden meter.
-- Repeated blunt wounds use maximum severity, and functional consequences are body-part specific.
+- Blunt Trauma is an alternative fully stopped-hit branch, not extra damage on top of penetration or armor-breaking overflow.\n- Stopped-bullet Blunt Trauma causes no direct global HP damage or automatic Bleeding; TraumaLoad drives Pain and local wound severity, with no hidden sub-threshold accumulator.
 
 For exact wording and status, see `docs/DECISIONS.md`.
 
@@ -128,8 +126,8 @@ For exact wording and status, see `docs/DECISIONS.md`.
 Major unresolved areas include:
 
 - Exact Unity version and technical baseline.
-- Exact damage, armor, penetration comparison/fraction, durability-loss, critical-hit, and non-bullet damage-type formulas.
-- Exact TraumaLoad thresholds/coefficient, body-part penalties, resistance stacking/caps/rounding, and Pain thresholds/AP curve.
+- Exact damage calibration, `k`, rounding, coverage aggregation, critical-hit, and non-bullet damage-type formulas.
+- Blunt Trauma boundary behavior and formula, body-part/wound resolution, bleeding behavior, resistance stacking/caps/rounding, and Pain thresholds/AP curve.
 - Exact AP values and remaining action costs.
 - Radiation/armor thresholds and formulas.
 - NPC AI priorities and phase ordering details.
@@ -177,4 +175,3 @@ When handing the project to another chat or agent:
 - verify branch/ref;
 - do not rely only on chat memory;
 - update `docs/PROJECT_STATE.md` whenever the current project stage or next task materially changes.
-
