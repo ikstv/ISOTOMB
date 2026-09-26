@@ -119,6 +119,9 @@ For exact approved wording, proposal status, and open questions, use `docs/DECIS
 - Ordinary bullet resistance applies once after armor distribution.
 - Blunt Trauma is an alternative fully stopped-hit branch, not extra damage on top of penetration or armor-breaking overflow.
 - Stopped-bullet Blunt Trauma causes no direct global HP damage or automatic Bleeding; TraumaLoad drives Pain and local wound severity, with no hidden sub-threshold accumulator.
+- Stopped-bullet blunt wounds have qualitative body-part-specific functional effects: Head affects Vision/aiming, Torso affects general physical performance, Arms affect arm-dependent weapons/actions, and Legs affect mobility/movement-related Evasion.
+- Stopped-bullet blunt-wound severity scales effect strength without automatic hard-disable; local wound effects coexist with Pain, Pain suppression does not remove local wound penalties, and current wound severity controls the current functional penalty.
+- Bilateral and multiple stopped-bullet blunt-wound effects may combine, with exact stacking still open.
 
 For exact wording and status, see `docs/DECISIONS.md`.
 
@@ -128,7 +131,7 @@ Major unresolved areas include:
 
 - Exact Unity version and technical baseline.
 - Exact damage calibration, `k`, rounding, coverage aggregation, critical-hit, and non-bullet damage-type formulas.
-- Exact TraumaLoad thresholds, Pain coefficient p, BaseTraumaReduction balance values, exact body-part blunt-wound functional penalties, and remaining resistance interaction.
+- Exact numerical body-part blunt-wound penalties, bilateral/same-function stacking, TraumaLoad thresholds, Pain coefficient p, BaseTraumaReduction balance values, treatment progression, and remaining resistance interaction.
 - Exact AP values and remaining action costs.
 - Radiation/armor thresholds and formulas.
 - NPC AI priorities and phase ordering details.
@@ -165,7 +168,7 @@ These are intentional design gates, not technical failures.
 
 ## Next Recommended Task
 
-Continue Superpowers brainstorming for OQ-029 by defining the qualitative body-part-specific functional effects of Light, Moderate, and Severe blunt wounds for Head, Torso, Arms, and Legs without assigning final numerical balance values.
+Continue Superpowers brainstorming for OQ-029 by defining qualitative local-wound treatment progression during a raid, including how treatment may reduce or clear Light, Moderate, and Severe wounds and what must remain for base recovery, without assigning final item values, AP costs, or balance numbers.
 
 ## Handoff Rule
 
