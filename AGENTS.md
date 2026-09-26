@@ -16,7 +16,14 @@ Reference games may be studied to understand mechanics and design patterns. Do n
 - Game localization: English and Ukrainian.
 - Communication with the owner: Ukrainian.
 
-## 3. Mandatory Superpowers Workflow
+## 3. Project Workflow Constraints
+
+- GitHub is the canonical source of project files, decisions, specifications, and implementation history.
+- Codex is the intended development agent.
+- Unity is the chosen engine direction, but the exact Unity version, rendering pipeline, scripting backend, and package set are not finalized.
+- Do not establish or maintain the ISOTOMB development repository on the owner's PC. Use authorized cloud/workspace checkouts for development work.
+
+## 4. Mandatory Superpowers Workflow
 
 Superpowers is mandatory for this project.
 
@@ -39,7 +46,7 @@ For new systems or architectural work, use this sequence:
 
 Do not interpret discussion of an idea as permission to implement it. Do not claim Superpowers was used unless it was actually available and invoked in the execution environment.
 
-## 4. Start-of-Session Procedure
+## 5. Start-of-Session Procedure
 
 Before changing anything, the agent must:
 
@@ -53,7 +60,7 @@ Before changing anything, the agent must:
 
 Repository contents always override assumptions from an old chat or agent memory.
 
-## 5. Decision Management
+## 6. Decision Management
 
 Agents must distinguish clearly between:
 
@@ -70,7 +77,7 @@ Rules:
 - Example numerical values used during brainstorming are not balance values unless explicitly approved.
 - Do not invent answers to unresolved design questions.
 
-## 6. Small-Step Development
+## 7. Small-Step Development
 
 Work must be split into small, reviewable tasks.
 
@@ -84,7 +91,7 @@ Each task should have:
 
 Do not implement several independent game systems in one task.
 
-## 7. Verification Rules
+## 8. Verification Rules
 
 Require evidence before completion claims.
 
@@ -100,7 +107,7 @@ For repository changes, report:
 
 A chat draft is not the same as a GitHub file. A workspace file is not the same as a commit. A commit on a branch is not the same as merged `main`.
 
-## 8. Documentation Continuity
+## 9. Documentation Continuity
 
 Once these files exist, use them as follows:
 
@@ -111,7 +118,7 @@ Once these files exist, use them as follows:
 
 Do not duplicate the full design history inside `AGENTS.md`.
 
-## 9. Reference Research Rules
+## 10. Reference Research Rules
 
 When researching Quasimorph or another reference game, distinguish:
 
@@ -124,7 +131,7 @@ Always record the build/version when relevant.
 
 Do not assume that a library present in another game must be used in ISOTOMB, that historical patch notes describe the current build exactly, or that an installed game directory is the original Unity project.
 
-## 10. Owner Approval
+## 11. Owner Approval
 
 The project owner is the final authority on game-design decisions.
 
@@ -136,13 +143,13 @@ If a requirement is ambiguous and materially changes gameplay or architecture:
 
 Do not silently choose on the owner's behalf.
 
-## 11. Current Restrictions
+## 12. Current Restrictions
 
 At the time `AGENTS.md` is created:
 
 - Implementation has not been approved.
-- No Unity project should be scaffolded by this task.
-- No gameplay code should be written.
+- No Unity project may be scaffolded until the owner has approved the relevant written specification and implementation plan through the mandatory Superpowers workflow.
+- No gameplay code may be written until that approval gate has been completed.
 - Exact Unity version is not finalized.
 - Camera/presentation direction is not finalized.
 - Balance numbers are not finalized.
