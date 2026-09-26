@@ -1083,6 +1083,8 @@ Local wounds use a small severity hierarchy:
 - Severe.
 
 - Repeated trauma to an already wounded body part may worsen the wound rather than creating unlimited duplicate copies.
+- For stopped-bullet blunt wounds, D-116 defines TraumaLoad as the severity source.
+- D-118 defines repeated blunt-hit severity as max(existing, this_hit).
 
 Exact thresholds and penalties remain open.
 
