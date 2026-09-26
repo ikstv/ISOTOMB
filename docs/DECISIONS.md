@@ -610,6 +610,368 @@ Status: APPROVED DECISION
 
 Exact throwing range and AP/action rules remain open.
 
+### D-046 — Armor Rating Degrades with Armor Durability
+
+Status: APPROVED DECISION
+
+- Armor has both current durability and an Armor Rating / protection-quality characteristic.
+- Armor Rating is part of the same unified armor system, not a second armor bar.
+- Armor Rating gradually degrades as armor durability becomes heavily damaged.
+- The relationship must not be linear 1:1.
+- Near-full armor should retain most of its protection quality.
+- Heavily damaged armor should provide noticeably worse resistance to penetration.
+- At zero effective armor durability, armor no longer provides its normal protection.
+- Exact thresholds and degradation curve remain open.
+
+### D-047 — Armor Plate Repair
+
+Status: APPROVED DECISION
+
+- Armor Plates restore current Armor only up to the current Max Durability.
+- Armor Plates do not reduce Max Durability.
+- Armor Plates do not repair the permanently lost/red Max Durability portion.
+- Armor Plates do not have a negative Armor Rating penalty merely from being used.
+- Using an Armor Plate costs 0 AP and does not advance world time.
+- Exact repair percentage per plate remains a balance value and is not finalized.
+- The previously discussed "~25%" is an example only.
+
+### D-048 — Improvised Armor Repair
+
+Status: APPROVED DECISION
+
+- Improvised materials found in raids may be used to restore some current Armor.
+- Improvised repair reduces the armor's Max Durability.
+- The lost Max Durability is represented as a permanently damaged/red portion until fully repaired through an approved full-repair method.
+- Improvised repair costs 0 AP and does not advance world time.
+- Exact repair amount and Max Durability loss depend on future balancing.
+- The earlier example of a metal pipe restoring "~15%" while reducing max durability from "100%" to "90%" is illustrative only.
+
+### D-049 — Armor Repair Kit
+
+Status: APPROVED DECISION
+
+- Armor Repair Kit is a rare and expensive repair item.
+- It is lighter and more slot-efficient than carrying many Armor Plates.
+- It can restore current Armor.
+- It can also restore the lost/red Max Durability portion.
+- It can be used during a raid or at the base.
+- It costs 0 AP and does not advance world time.
+- The kit has multiple uses / repair capacity rather than being strictly single-use.
+
+The earlier concept:
+
+- about 3 uses;
+- about 150% total repair capacity;
+
+is a balance example only, not a final tuned value.
+
+### D-050 — Armor Workshop Professional Repair
+
+Status: APPROVED DECISION
+
+- At the base, damaged armor may be left at the Armor Workshop for professional repair.
+- Professional repair can restore lost/red Max Durability.
+- The armor is unavailable while being repaired.
+- The service costs coupons.
+- Repair duration is measured in future raids, not real-world time.
+- The earlier example of 2-3 raids is a balance example only.
+- This service is an alternative to consuming an Armor Repair Kit.
+
+Exact price and repair duration remain open.
+
+### D-051 — Multiple Economic Repair Choices
+
+Status: APPROVED DECISION
+
+The player may face several valid repair choices:
+
+- consume a rare Armor Repair Kit;
+- use Armor Plates for ordinary field repair;
+- use improvised repair at the cost of Max Durability;
+- leave armor at the Armor Workshop and pay coupons;
+- acquire or craft new repair resources;
+- buy repair resources from traders when available.
+
+No single option should automatically dominate all others.
+
+### D-052 — Progressive Crafting System
+
+Status: APPROVED DECISION
+
+- ISOTOMB includes crafting.
+- Crafting capability progresses through base development.
+- Early crafting begins with crude/basic equipment.
+- Higher progression unlocks increasingly advanced equipment.
+- Crafting must require actual materials.
+- Base progression alone must not create items or bypass resource requirements.
+
+The example of a crude single-shot improvised pistol made from pipe-like parts and tape is thematic inspiration, not a mandatory exact item.
+
+### D-053 — Fabrication Workshop
+
+Status: APPROVED DECISION
+
+- Crafting progression is handled through a dedicated base module.
+- Working name: Fabrication Workshop.
+- Higher Fabrication Workshop progression enables more advanced crafting capability.
+- Exact final player-facing name may be refined later.
+
+Do not merge this system into Weapon Workshop or Armor Workshop without owner approval.
+
+### D-054 — Crafting Requires Technology + Facility + Materials
+
+Status: APPROVED DECISION
+
+A craftable advanced item requires:
+
+- sufficient Fabrication Workshop capability;
+- the relevant learned technology;
+- the required physical materials/resources.
+
+Facility level alone does not automatically unlock every recipe.
+
+### D-055 — Tech Datapad
+
+Status: APPROVED DECISION
+
+- Advanced technologies are discovered through physical Tech Datapads found in raids.
+- A Tech Datapad is a persistent physical loot item.
+- A technology does not unlock merely because the player sees or picks up the datapad.
+- The Tech Datapad must be successfully extracted to the base before the technology can be learned.
+- If the carrying stalker dies, the Tech Datapad remains in the persistent sector as loot.
+- A later stalker may recover and extract it.
+- NPCs may loot/move the Tech Datapad under the same shared finite-item rules.
+
+### D-056 — One Datapad Unlocks One Technology
+
+Status: APPROVED DECISION
+
+- One Tech Datapad corresponds to one specific technology/recipe unlock.
+- A single datapad does not unlock an entire technology branch.
+- Technology trees are built from many individual discoveries.
+
+### D-057 — Datapad Knowledge Status
+
+Status: APPROVED DECISION
+
+- The UI must indicate whether the technology on a Tech Datapad is already learned by the player's base.
+- A duplicate datapad remains useful even if the player has already learned that technology.
+- Duplicate datapads may be sold, traded, or given to factions.
+- Exact UI presentation remains open.
+
+### D-058 — Technology Is Not Permanently Missable
+
+Status: APPROVED DECISION
+
+- Main technologies must not become permanently unavailable because one datapad was given away, lost, or acquired by another faction.
+- Relevant Tech Datapads can appear again after the technology enters the appropriate progression/loot pool.
+- Rarity may differ by technology tier.
+- Giving a datapad away can delay the player, but must not permanently lock that technology out of the campaign.
+
+### D-059 — Weapon Technology Branches
+
+Status: APPROVED DECISION
+
+Weapon progression includes distinct technology branches such as:
+
+- pistols;
+- shotguns;
+- assault rifles;
+- sniper rifles;
+- electric weapons.
+
+These are broad category directions.
+Exact item lists and sub-branches remain open.
+
+### D-060 — Late-Game Electric Weapons
+
+Status: APPROVED DECISION
+
+- Electric weapons are a very late-game/high-technology weapon class.
+- They use specialized battery-based ammunition/energy units.
+- They are extremely expensive to acquire/use.
+- They are intended to have exceptionally high penetration.
+- They may penetrate top-tier armor and some heavy cover/walls depending on final balance.
+- They should not become ordinary mid-game equipment.
+
+Exact stats, ammunition system, and penetration rules remain open.
+
+### D-061 — Story Completion Does Not End the Save
+
+Status: APPROVED DECISION
+
+- ISOTOMB has a story with a meaningful ending.
+- Completing the story does not end the save.
+- The player may continue playing afterward.
+- Endgame is intended to be open-ended / effectively endless if the player wishes to continue.
+
+### D-062 — Dynamic Endgame World Events
+
+Status: APPROVED DECISION
+
+Endgame includes dynamic world events that can change sectors and raid conditions.
+
+Examples of event categories:
+
+- anomalous surges;
+- faction conflicts;
+- quarantines/blockades;
+- lost expeditions;
+- anomaly storms;
+- temporary traders/caravans.
+
+Exact event list and frequency remain open.
+
+Events must create meaningful reasons to choose specific sectors, not only increase difficulty numerically.
+
+### D-063 — Faction Power Is Dynamic
+
+Status: APPROVED DECISION
+
+- Faction power changes over time.
+- Power is influenced by:
+  - technology;
+  - resources;
+  - controlled sectors;
+  - losses;
+  - research/production capability;
+  - trade and player influence.
+- Faction strength must not be a static fixed number.
+
+### D-064 — Factions Have Technological Specializations
+
+Status: APPROVED DECISION
+
+- Major factions have different technology specializations.
+- Specialization provides an advantage in particular research/technology branches.
+- Specialization is not an absolute restriction.
+- Factions may later acquire technologies outside their specialty through research, trade, captured resources, Tech Datapads, or events.
+
+Exact faction identities and specializations remain open.
+
+### D-065 — Five Major Factions at Initial Design Scope
+
+Status: APPROVED DECISION
+
+- Initial design scope includes 5 major factions.
+- More may be added later.
+- All 5 begin at technology level 1.
+- No faction begins with an arbitrary overall technology-level advantage.
+
+Do not invent faction names yet unless separately approved.
+
+### D-066 — Faction Research Is Hybrid
+
+Status: APPROVED DECISION
+
+Factions may progress technologically without direct player help, but progression must come from world/system causes such as:
+
+- controlled research facilities;
+- controlled industrial facilities;
+- resource strength;
+- research progress;
+- Tech Datapads;
+- trade;
+- captures from other factions;
+- global/story events.
+
+Do not grant technologies simply because a hidden timer elapsed.
+
+### D-067 — Player Can Influence Faction Technology
+
+Status: APPROVED DECISION
+
+- The player may sell or give Tech Datapads to factions.
+- Doing so can accelerate that faction's technological progress.
+- A faction that receives a technology may later field related weapons, armor, or equipment.
+- Giving a datapad to a faction does not permanently remove that technology from the player's campaign; another copy may later be found.
+
+### D-068 — Story-Gated Technology Eras
+
+Status: APPROVED DECISION
+
+- The world may have story/progression gates that control when very advanced technology enters the global progression pool.
+- Factions cannot randomly obtain endgame technologies far earlier than intended.
+- These gates exist to preserve progression and balance.
+
+Exact eras and story gates remain open.
+
+### D-069 — Faction Control Cannot Permanently Eliminate a Major Faction
+
+Status: APPROVED DECISION
+
+- A major faction may lose most external sectors.
+- Each major faction retains at least one protected base/stronghold/enclave.
+- A weakened faction has a path to recover over time.
+- Major factions are not permanently deleted from the campaign simulation.
+
+### D-070 — Global Map Shows Faction Sector Control
+
+Status: APPROVED DECISION
+
+- The global map visibly shows which faction controls each sector.
+- Sector control changes are visible to the player.
+- The map is part of strategic decision-making, not only a mission-selection menu.
+
+Exact UI layout remains open.
+
+### D-071 — Sector State Can Show Strategic Information
+
+Status: APPROVED DECISION
+
+The global map may expose relevant sector information such as:
+
+- controlling faction;
+- threat level;
+- important facility/object type;
+- active anomaly/world event;
+- faction conflict;
+- temporary trader/caravan;
+- special raid opportunity.
+
+Exact UI and information-visibility rules remain open.
+
+### D-072 — Player Can Influence Sector Control Directly and Indirectly
+
+Status: APPROVED DECISION
+
+Player influence over faction control is mixed.
+
+Direct influence may include:
+
+- faction contracts;
+- raids supporting a faction;
+- future story missions.
+
+Indirect influence may include:
+
+- resource trade;
+- Tech Datapads;
+- technology transfer;
+- economic support;
+- weakening rival forces.
+
+Exact capture rules and mission structures remain open.
+
+### D-073 — Faction Trade Prices Depend on Relations
+
+Status: APPROVED DECISION
+
+- Trade prices and/or markups can depend on faction relations.
+- Poor relations may produce very large markups.
+- The previously discussed "up to +90%" is a balance example only, not a finalized value.
+- Friendly relations may improve prices and/or access.
+
+Exact price formula remains open.
+
+### D-074 — Temporary Faction Traders
+
+Status: APPROVED DECISION
+
+- Factions may temporarily visit/trade with the player's base or become available for a limited number of raids.
+- Their inventory and pricing may depend on faction relations and technology.
+- Exact visit duration and trader rotation rules remain open.
+
 ## Superseded Decisions
 
 ### S-001 — One Action Equals One Turn
@@ -722,6 +1084,7 @@ Open questions are NOT approved decisions and must not be answered by the agent.
 Status: OPEN QUESTION
 
 - How damage interacts with armor and HP.
+- Exact Armor Rating degradation thresholds and curve as armor durability decreases.
 - Armor penetration.
 - Critical hits.
 - Damage types.
@@ -825,11 +1188,13 @@ Status: OPEN QUESTION
 
 Status: OPEN QUESTION
 
-- Difference between armor plates and repair kits.
-- Repair amount.
-- Limits.
+- Exact Armor Plate repair amount.
+- Exact Armor Repair Kit repair capacity/uses.
+- Exact improvised repair amount and Max Durability loss.
+- Exact Armor Workshop professional repair cost and duration.
 - Item compatibility.
-- Whether repair has condition loss or diminishing returns.
+- Whether any repair option has diminishing returns.
+- How repair choices interact with Armor Rating degradation.
 
 ### OQ-010 — Item Deterioration
 
@@ -856,12 +1221,13 @@ Status: OPEN QUESTION
 
 Status: OPEN QUESTION
 
-- Faction count.
 - Names.
 - Reputation.
 - Contracts.
 - Trading.
-- Territory control, if any.
+- Exact specializations.
+- Exact technology progression model.
+- Exact sector-control rules.
 
 ### OQ-013 — Anomalies and Artifacts
 
@@ -974,6 +1340,90 @@ Status: OPEN QUESTION
 - Mine trigger rules.
 - Grenade/grenade-launcher AP costs.
 - Explosive damage to armor, characters, objects, and environment.
+
+### OQ-022 — Armor Repair Economy
+
+Status: OPEN QUESTION
+
+- Exact Armor Plate repair amount.
+- Armor Repair Kit total capacity/charges.
+- Improvised repair conversion.
+- Max Durability loss formula.
+- Armor Workshop coupon cost.
+- Armor Workshop repair duration.
+- Interaction between Armor Rating and repairs.
+
+### OQ-023 — Crafting Economy
+
+Status: OPEN QUESTION
+
+- Exact Fabrication Workshop progression.
+- Craft time, if any.
+- Recipe costs.
+- Material categories.
+- Whether crafting uses coupons in addition to materials.
+- Item quality/condition on crafted items.
+- Whether crafted items can have variants.
+
+### OQ-024 — Tech Datapad Distribution
+
+Status: OPEN QUESTION
+
+- Exact loot-pool gating.
+- Drop rarity.
+- Sector/facility associations.
+- Duplicate frequency.
+- Whether some datapads are faction-specific.
+- Exact UI markers for learned/unknown tech.
+
+### OQ-025 — Faction Technology Simulation
+
+Status: OPEN QUESTION
+
+- Exact research-progress model.
+- Specialization bonuses.
+- Facility effects.
+- Resource effects.
+- Time/raid-cycle resolution.
+- Technology adoption delay after learning.
+- Field-equipment rollout rate.
+
+### OQ-026 — Faction Warfare and Sector Capture
+
+Status: OPEN QUESTION
+
+- Exact rules for attacking/defending sectors.
+- Combat-resolution model outside player raids.
+- Sector-value calculation.
+- Recovery mechanics for weakened factions.
+- Protected enclave behavior.
+- Direct player mission effects.
+
+### OQ-027 — Endgame World Events
+
+Status: OPEN QUESTION
+
+- Event generation.
+- Frequency.
+- Duration.
+- Stacking.
+- Player notification.
+- Anomaly changes.
+- Rewards.
+- Interaction with faction control.
+- Interaction with persistent sectors.
+
+### OQ-028 — Global Map UX
+
+Status: OPEN QUESTION
+
+- Exact map layout.
+- Sector icons.
+- Faction colors.
+- Event markers.
+- Information visibility.
+- Filters.
+- History of control changes.
 
 ## Proposals
 
