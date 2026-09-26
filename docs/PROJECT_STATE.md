@@ -3,7 +3,8 @@
 ## Current Stage
 
 - Project stage: game-design brainstorming / pre-implementation.
-- Initial project-governance and design-decision documentation has been prepared.
+- Project-governance documentation is established on `main`.
+- A substantial first block of gameplay-design decisions has been reviewed and merged.
 - Gameplay implementation has NOT been approved.
 - No Unity project has been scaffolded.
 - No gameplay code exists yet.
@@ -30,7 +31,7 @@ Reading order:
 1. `AGENTS.md`
    - Agent workflow and project governance.
 2. `docs/PROJECT_STATE.md`
-   - Current project stage and next task.
+   - Current project stage and exactly one recommended next task.
 3. `docs/DECISIONS.md`
    - Canonical approved design decisions, superseded decisions, proposals, and open questions.
 4. Relevant future Superpowers specification
@@ -42,15 +43,30 @@ Repository documents override old chat assumptions or agent memory.
 
 - GitHub repository created.
 - `README.md` exists.
-- `AGENTS.md` has been created on the current documentation branch and is part of PR #1.
-- `docs/DECISIONS.md` has been created on the current documentation branch and is part of PR #1.
-- Initial mechanics/reference brainstorming has been documented in `docs/DECISIONS.md`.
+- PR #1 was merged into `main` and established:
+  - `AGENTS.md`;
+  - `docs/DECISIONS.md`;
+  - `docs/PROJECT_STATE.md`.
+- PR #2 was squash-merged into `main` and expanded the canonical design record through the current combat/equipment/crafting/faction/endgame decision block.
+- The merged design block covers, at a high level:
+  - armor overflow and ballistic dependencies;
+  - ammunition, weapon wear, persistent magazines, mixed ammunition, and magazine knowledge;
+  - carried weight, backpacks, chest rigs, Evasion, Cover, and destructible/penetrable cover;
+  - explosive radius/falloff and deterministic grenade target-cell placement;
+  - Armor Rating degradation and multiple armor-repair methods;
+  - Weapon Workshop, Armor Workshop, and Fabrication Workshop directions;
+  - crafting requirements and Tech Datapad progression;
+  - story completion with optional endless post-story play;
+  - five major factions, technological specializations, hybrid research, persistent faction enclaves, visible sector control, faction trading, and temporary traders.
 - A read-only Quasimorph installation audit was previously used as reference research, but its findings do not constitute ISOTOMB implementation or architecture.
+
+For exact approved wording, proposal status, and open questions, use `docs/DECISIONS.md`.
 
 ## Repository State
 
 - Canonical branch: `main`.
-- Initial documentation was prepared through PR #1.
+- PR #1 and PR #2 are merged.
+- The current work remains design/documentation only.
 - Agents must inspect the actual repository branch/ref and PR state at the start of every session.
 - Do not rely on branch names, commit SHAs, or PR status stored in an older project-state snapshot.
 
@@ -63,25 +79,52 @@ Repository documents override old chat assumptions or agent memory.
 - Loot generated once per location.
 - Finite shared item population usable by player and NPCs.
 - NPC inventories/resources are real and persistent.
-- One armor system.
+- One unified armor system with Armor Durability and Armor Rating behavior.
 - Radiation is a core environmental hazard.
 - Turn/AP combat with player phase before NPC phase.
 - Movement and shooting spend AP.
-- Inventory viewing, accessible looting, and medkit use are currently free/time-neutral.
-- Vision, suppressors, artifacts, anomalies, factions, and balance are important design areas.
+- Inventory viewing, accessible looting, medkit use, cartridge loading/unloading, Armor Plate use, improvised armor repair, and Armor Repair Kit use are currently free/time-neutral where specified by `docs/DECISIONS.md`.
+- Ballistic behavior depends on weapon, caliber, and ammunition.
+- Magazines are persistent items and may contain mixed compatible ammunition in exact cartridge order.
+- Evasion, Armor, and Cover are mechanically distinct.
+- Carried weight affects mobility/Evasion.
+- Cover may be penetrated or destroyed depending on material and attack capability.
+- Explosive/area effects use grid-cell radius and distance falloff.
+- Weapon and armor modification is base-based and requires materials.
+- Crafting progresses through a Fabrication Workshop and requires facility capability, learned technology, and materials.
+- Tech Datapads are physical raid loot; one datapad unlocks one technology after successful extraction to base.
+- Main technologies are not permanently missable.
+- Story completion does not end the save; post-story play may continue indefinitely.
+- Five major factions are in the initial design scope and all begin at technology level 1.
+- Factions have different technological specializations and can progress through world/system causes.
+- The player can influence faction technology and sector control directly and indirectly.
+- Major factions retain at least one protected base/stronghold/enclave and cannot be permanently removed from the campaign simulation.
+- The global map visibly shows faction sector control.
+- Faction trade prices can depend on relations.
+- Temporary faction traders are approved.
+- Rich additional strategic sector information remains a proposal, not an approved decision.
 
 For exact wording and status, see `docs/DECISIONS.md`.
 
 ## Not Yet Decided
 
+Major unresolved areas include:
+
 - Exact Unity version and technical baseline.
-- Exact damage and armor formula.
-- Exact AP values and action costs.
+- Exact damage, armor, penetration, critical-hit, and damage-type formulas.
+- Exact AP values and remaining action costs.
 - Radiation/armor thresholds and formulas.
 - NPC AI priorities and phase ordering details.
-- Vision, sound, stealth, and detection details.
-- Base economy and roster progression.
-- Faction systems.
+- Vision, sound, stealth, detection, and search behavior.
+- Exact armor-repair amounts, compatibility, Max Durability behavior, and repair economy.
+- Exact carrying-capacity/Evasion formulas.
+- Exact weapon/armor upgrade trees and crafting economy.
+- Exact magazine/reload edge cases and inspection rules.
+- Exact cover penetration/destruction formulas.
+- Exact explosive resolution.
+- Exact Tech Datapad distribution and technology rollout rates.
+- Exact faction identities, reputation, contracts, trading rules, research simulation, and sector-capture rules.
+- Exact endgame world-event generation and behavior.
 - Anomalies and artifacts.
 - Final presentation/camera/art direction.
 - First playable prototype scope.
@@ -104,7 +147,7 @@ These are intentional design gates, not technical failures.
 
 ## Next Recommended Task
 
-Continue game-design brainstorming in small steps and define the next unresolved core combat rule before creating the first playable prototype specification.
+Continue Superpowers brainstorming for `OQ-001 — Exact Damage Formula`, starting with the exact order of hit resolution between hit/evasion, cover interception, armor penetration, Armor Rating, Armor Durability, and HP damage.
 
 ## Handoff Rule
 
