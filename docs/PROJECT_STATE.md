@@ -3,7 +3,7 @@
 ## Current Stage
 
 - Project stage: game-design brainstorming / pre-implementation.
-- Documentation bootstrap is being prepared in PR #1.
+- Initial project-governance and design-decision documentation has been prepared.
 - Gameplay implementation has NOT been approved.
 - No Unity project has been scaffolded.
 - No gameplay code exists yet.
@@ -47,16 +47,12 @@ Repository documents override old chat assumptions or agent memory.
 - Initial mechanics/reference brainstorming has been documented in `docs/DECISIONS.md`.
 - A read-only Quasimorph installation audit was previously used as reference research, but its findings do not constitute ISOTOMB implementation or architecture.
 
-## Current Repository Work
+## Repository State
 
-- Current branch: `docs/agents-guidelines`.
-- Current HEAD at the start of this task: `9ada53f19093328530bb52b0826c99d9a15b0168`.
-- PR #1 state at inspection: `OPEN`.
-- PR #1 base branch: `main`.
-- Changed files vs `main` at this snapshot:
-  - `AGENTS.md`
-  - `docs/DECISIONS.md`
-  - `docs/PROJECT_STATE.md`
+- Canonical branch: `main`.
+- Initial documentation was prepared through PR #1.
+- Agents must inspect the actual repository branch/ref and PR state at the start of every session.
+- Do not rely on branch names, commit SHAs, or PR status stored in an older project-state snapshot.
 
 ## Important Approved Direction
 
