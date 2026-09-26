@@ -943,6 +943,292 @@ Status: APPROVED DECISION
 - Pricing may depend on faction relations.
 - Exact visit duration and trader rotation rules remain open.
 
+### D-075 — Blunt Trauma From Non-Penetrating Hits
+
+Status: APPROVED DECISION
+
+- A hit that fails to penetrate armor normally does not apply ordinary penetrating/bullet HP damage.
+- A sufficiently strong non-penetrating impact may still cause limited Blunt Trauma.
+- Ordinary non-penetrating firearm impacts must not automatically cause knockdown or hard stun.
+- Blunt Trauma is not calculated merely from how close the attack was to penetrating.
+
+Exact formula remains open.
+
+### D-076 — Armor Impact / Trauma Protection
+
+Status: APPROVED DECISION
+
+- Different armor types may absorb transmitted impact differently.
+- Armor has a property/concept for impact or trauma reduction in addition to Armor Rating and Armor Durability.
+- This is not a separate armor bar or a separate armor system.
+- Damaged armor becomes worse at reducing transmitted Blunt Trauma.
+
+Exact formula and values remain open.
+
+### D-077 — Body-Part Hit and Wound System
+
+Status: APPROVED DECISION
+
+- Characters use body-part hit locations.
+- The current working body-part set is Head, Torso, Left Arm, Right Arm, Left Leg, and Right Leg.
+- Characters still have one shared/global HP pool.
+- Body parts do not have separate HP bars.
+- Body parts instead carry local wounds/status effects.
+- Damage to a body part can reduce global HP and also create a local wound.
+
+### D-078 — Local Armor Coverage Within the Unified Armor System
+
+Status: APPROVED DECISION
+
+- Armor remains one unified armor system.
+- Individual equipment items protect relevant body regions more effectively.
+- A helmet primarily protects the Head.
+- Body armor/vest primarily protects the Torso.
+- Future equipment may protect limbs.
+- Independent per-body-part armor HP bars require separate owner approval.
+
+### D-079 — Armor Rating Plus Damage-Type Resistances
+
+Status: APPROVED DECISION
+
+- Armor uses one general Armor Rating for penetration-related mechanics.
+- Damage-type resistances are separate from general Armor Rating.
+- A completely separate Armor Rating for every damage type is not used.
+
+### D-080 — Resistance Display and Range
+
+Status: APPROVED DECISION
+
+- Resistances are displayed numerically as percentages.
+- Resistances may be positive, zero, or negative.
+- Positive resistance reduces vulnerability/effect.
+- Negative resistance represents increased vulnerability.
+
+Exact damage-conversion formula remains open. A resistance percentage does not by itself define an identical percentage change to final damage.
+
+### D-081 — Resistance Sources
+
+Status: APPROVED DECISION
+
+A character's effective resistance may be affected by relevant sources such as:
+
+- armor;
+- helmet/equipment;
+- character properties;
+- perks;
+- artifacts;
+- temporary buffs/debuffs;
+- other approved effects.
+
+Exact stacking formula remains open.
+
+### D-082 — Resistance Caps
+
+Status: APPROVED DECISION
+
+- Effective positive resistance has an upper cap so ordinary builds cannot achieve unconditional total immunity.
+- Negative resistance also has a reasonable lower bound so damage amplification cannot become absurd.
+- Excess positive resistance may be retained internally as overcap and used to offset resistance-reducing debuffs.
+- Exact upper/lower cap numbers are not approved yet.
+
+Rare cap-increasing perks/artifacts are not approved.
+
+### D-083 — Damage Types Can Produce Thematic Wounds / Status Effects
+
+Status: APPROVED DECISION
+
+- Different damage types may create different wounds/status effects.
+- Effects should fit ISOTOMB's grounded anomalous-zone atmosphere.
+- Arbitrary/magical status effects that do not fit the setting should be avoided.
+
+The exact damage-type list and effect mapping remain open. Piercing/ballistic trauma, bleeding/laceration, blunt trauma, burns, shock/electrical effects, radiation, and explosive/blast effects are design-direction examples, not a final taxonomy.
+
+### D-084 — Bleeding Can Stop Naturally, Slowly
+
+Status: APPROVED DECISION
+
+- Bleeding can eventually stop naturally.
+- Natural stopping takes a large number of turns.
+- Medical treatment remains strategically important because waiting for natural clotting is usually undesirable during a raid.
+
+Exact turn counts remain open.
+
+### D-085 — Local Bleeding
+
+Status: APPROVED DECISION
+
+- Bleeding is associated with wounded body parts.
+- A character may have bleeding on more than one body part at the same time.
+- All bleeding ultimately reduces the single global HP pool.
+- A separate HP pool per bleeding location is not used.
+
+### D-086 — Wound Severity
+
+Status: APPROVED DECISION
+
+Local wounds use a small severity hierarchy:
+
+- Light;
+- Moderate;
+- Severe.
+
+- Repeated trauma to an already wounded body part may worsen the wound rather than creating unlimited duplicate copies.
+
+Exact thresholds and penalties remain open.
+
+### D-087 — Wounds and Bleeding Are Separate Concepts
+
+Status: APPROVED DECISION
+
+- Bleeding primarily represents ongoing HP loss.
+- A local wound represents damage to that body part and its functional consequences.
+- A Leg Wound may impair movement even after active bleeding has stopped.
+- Every wound penalty is not automatically duplicated inside Bleeding.
+
+### D-088 — Wounds Do Not Fully Heal by Waiting During a Raid
+
+Status: APPROVED DECISION
+
+- Bleeding may naturally stabilize/stop during a raid.
+- Significant local wounds do not simply disappear after waiting enough turns.
+- Medical treatment can improve wound severity.
+- Severe injuries can remain a problem through the rest of the raid.
+
+Exact treatment requirements remain open.
+
+### D-089 — Global HP and Wounds Remain Separate
+
+Status: APPROVED DECISION
+
+- Max HP is not automatically reduced just because the character has a wound.
+- Current HP may be restored while a local wound still exists.
+- A character may be at full current HP while still suffering penalties from an unresolved Moderate/Severe wound.
+- Healing HP does not automatically erase the wound.
+
+### D-090 — Base Recovery Requires Time and Resources
+
+Status: APPROVED DECISION
+
+- Returning to base does not automatically fully heal persistent wounds.
+- Recovery takes time.
+- Recovery may require food and medical resources.
+- If the same stalker is needed immediately, the player may spend resources to prepare/treat that stalker sooner.
+- A stalker may potentially deploy again before full recovery.
+
+Exact recovery duration and costs remain open.
+
+### D-091 — Food Is a Broad Survival Resource
+
+Status: APPROVED DECISION
+
+- Food affects more than simple HP restoration.
+- Nutrition may influence multiple parts of character recovery and readiness.
+- Food should not become constant high-frequency micromanagement without further owner approval.
+
+Exact nutrition model, hunger stages, stat effects, and consumption rates remain open.
+
+### D-092 — Water
+
+Status: APPROVED DECISION
+
+- Water is a survival consumable.
+- Water can function as a lightweight/basic recovery consumable.
+- It may provide a small restorative effect.
+
+Exact healing/nutrition/hydration values remain open. Water does not receive claimed real-world medical effects beyond ordinary hydration.
+
+### D-093 — Alcohol
+
+Status: APPROVED DECISION
+
+- Alcohol may provide a small temporary restorative/pain-management benefit.
+- Alcohol may provide a stronger temporary benefit against the game's fictional radiation effects.
+- Alcohol also applies negative effects to other combat/character parameters.
+- Repeated use may accumulate Intoxication.
+
+Exact values and affected statistics remain open. The radiation interaction is a fictional game mechanic, not real-world radiation medicine.
+
+### D-094 — Energy Drinks
+
+Status: APPROVED DECISION
+
+- Energy drinks may temporarily increase energy/readiness and Strength-related performance.
+- Repeated use may accumulate a negative Crash state.
+
+Exact effects, stacking, and duration remain open.
+
+### D-095 — Accumulating Intoxication and Energy Crash
+
+Status: APPROVED DECISION
+
+- Repeated alcohol use can accumulate Intoxication.
+- Repeated energy-drink use can accumulate Energy Crash / Crash.
+- These create a tactical benefit-now/drawback-later trade-off.
+
+Exact thresholds and penalties remain open.
+
+### D-096 — Temporary Raid States Clear at Base
+
+Status: APPROVED DECISION
+
+The following short-term raid conditions clear automatically when the stalker returns to base:
+
+- Intoxication;
+- Energy Crash;
+- ordinary raid Exhaustion.
+
+This automatic clearing does not apply to persistent wounds, lost HP, nutrition/recovery needs, or other states unless separately approved.
+
+### D-097 — Pain System
+
+Status: APPROVED DECISION
+
+- Pain is a separate character status.
+- Pain is global for the whole character, not tracked independently for every body part.
+- Local wounds and relevant injuries can contribute to Pain.
+- Pain-suppressing items/effects do not automatically heal the underlying wound.
+
+### D-098 — Pain Uses an Internal Numeric Value
+
+Status: APPROVED DECISION
+
+- Pain uses one internal numeric scale, conceptually 0–100.
+- UI may later group that numeric value into readable severity bands.
+
+Exact thresholds and band thresholds remain open.
+
+### D-099 — Pain Affects Maximum AP
+
+Status: APPROVED DECISION
+
+- High Pain reduces the character's maximum available AP.
+- Pain does not make every action individually more expensive.
+- A separate generic Pain accuracy penalty is not added without new owner approval.
+- Accuracy penalties may still come from local wounds or other status effects.
+
+### D-100 — Pain Persistence at Base
+
+Status: APPROVED DECISION
+
+- Returning to base reduces acute raid pain through rest.
+- Pain does not necessarily become zero while serious unresolved wounds remain.
+
+Exact base pain-recovery behavior remains open.
+
+### D-101 — Specialized Medical Items
+
+Status: APPROVED DECISION
+
+Medical consumables are divided by purpose rather than one universal item:
+
+- Bandage / Hemostatic: intended primarily for Bleeding control.
+- Medkit / First Aid Kit: intended primarily for restoring current HP / general first aid.
+- Trauma Kit or equivalent stronger medical item: intended for treating local wounds / reducing wound severity.
+- Painkillers: intended for suppressing Pain without automatically healing the wound.
+- Anti-Rad: remains a separate radiation-management consumable under the existing radiation decisions.
+
+Exact item names, counts, charges, AP/time costs, wound reductions, HP restoration values, and rarity remain open. Specialized burn kits and additional specialist medicines are not approved.
+
 ## Superseded Decisions
 
 ### S-001 — One Action Equals One Turn
@@ -1061,6 +1347,14 @@ Status: OPEN QUESTION
 - Damage types.
 - Exact armor overflow calculation after D-025.
 - Damage-type multipliers.
+- Exact hit-resolution order.
+- Exact penetration formula and Armor Rating comparison.
+- Armor Durability loss on penetrating versus non-penetrating hits.
+- HP damage after penetration and whether residual penetration affects it.
+- Blunt Trauma formula.
+- Interaction with damage-type resistance.
+- Body-part hit weighting.
+- Exact damage types.
 
 ### OQ-002 — Exact AP Model
 
@@ -1396,6 +1690,87 @@ Status: OPEN QUESTION
 - Information visibility.
 - Filters.
 - History of control changes.
+
+### OQ-029 — Body-Part and Wound Resolution
+
+Status: OPEN QUESTION
+
+- Body-part hit probabilities.
+- Wound-generation thresholds.
+- Exact Light/Moderate/Severe penalties.
+- Repeated-wound escalation.
+- Exact limb, head, and torso functional effects.
+- Treatment progression.
+- Whether all body parts use equal hit weighting.
+
+### OQ-030 — Bleeding
+
+Status: OPEN QUESTION
+
+- Exact HP-loss frequency.
+- Severity model.
+- Natural clotting duration.
+- Interaction with repeated injuries.
+- Treatment strength.
+- Whether movement/actions affect natural stabilization.
+
+### OQ-031 — Resistance Model
+
+Status: OPEN QUESTION
+
+- Exact percentage formula.
+- Stacking order.
+- Upper and lower caps.
+- Overcap behavior.
+- Penetration versus resistance ordering.
+- Which damage types receive which resistances.
+
+### OQ-032 — Pain
+
+Status: OPEN QUESTION
+
+- Exact 0–100 thresholds.
+- Exact AP reduction curve.
+- Pain generation per wound/effect.
+- Pain suppression duration.
+- Base recovery rate.
+
+### OQ-033 — Base Medical Recovery
+
+Status: OPEN QUESTION
+
+- Exact number of raid cycles/time.
+- Food/resource requirements.
+- Accelerated treatment cost.
+- Deploying partially recovered stalkers.
+- Interaction with roster rotation.
+
+### OQ-034 — Nutrition / Survival Consumables
+
+Status: OPEN QUESTION
+
+- Hunger/nutrition model.
+- Water model.
+- Exact alcohol effects.
+- Exact fictional anti-radiation effect.
+- Intoxication penalties.
+- Energy-drink bonuses.
+- Crash penalties.
+- Stacking limits.
+
+### OQ-035 — Medical Item Rules
+
+Status: OPEN QUESTION
+
+- Exact item names.
+- Item weight/slots.
+- Charges.
+- HP values.
+- Bleeding control.
+- Wound-severity reduction.
+- Pain suppression.
+- AP/time costs for items not already explicitly covered by existing decisions.
+- Rarity and crafting.
 
 ## Proposals
 

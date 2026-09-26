@@ -103,6 +103,14 @@ For exact approved wording, proposal status, and open questions, use `docs/DECIS
 - Faction trade prices can depend on relations.
 - Temporary faction traders are approved.
 - Rich additional strategic sector information remains a proposal, not an approved decision.
+- Global HP remains shared while body-part hit locations carry localized wounds.
+- Body-part coverage remains within the unified armor system.
+- Armor Rating and damage-type resistances are distinct systems.
+- Resistances use numeric percentages and may be positive, zero, or negative, with bounded caps.
+- Blunt Trauma, Bleeding, and Pain are approved design directions.
+- Persistent wounds require time/resources for base recovery.
+- Food, water, alcohol, energy drinks, and temporary raid states are approved survival-consumable directions.
+- Medical items are specialized by purpose, including bleeding control, HP restoration, wound treatment, pain suppression, and radiation management.
 
 For exact wording and status, see `docs/DECISIONS.md`.
 
@@ -112,6 +120,7 @@ Major unresolved areas include:
 
 - Exact Unity version and technical baseline.
 - Exact damage, armor, penetration, critical-hit, and damage-type formulas.
+- Exact hit-resolution order, Blunt Trauma formula, body-part/wound resolution, bleeding behavior, resistance conversion/stacking, and Pain thresholds/AP curve.
 - Exact AP values and remaining action costs.
 - Radiation/armor thresholds and formulas.
 - NPC AI priorities and phase ordering details.
@@ -125,6 +134,7 @@ Major unresolved areas include:
 - Exact Tech Datapad distribution and technology rollout rates.
 - Exact faction identities, reputation, contracts, trading rules, research simulation, and sector-capture rules.
 - Exact endgame world-event generation and behavior.
+- Exact base recovery duration/costs, nutrition model, survival-consumable effects, and medical-item rules.
 - Anomalies and artifacts.
 - Final presentation/camera/art direction.
 - First playable prototype scope.
@@ -147,7 +157,7 @@ These are intentional design gates, not technical failures.
 
 ## Next Recommended Task
 
-Continue Superpowers brainstorming for `OQ-001 — Exact Damage Formula`, starting with the exact order of hit resolution between hit/evasion, cover interception, armor penetration, Armor Rating, Armor Durability, and HP damage.
+Continue `OQ-001 — Exact Damage Formula` by deciding the canonical hit-resolution order and the relationship between penetration, Armor Durability loss, and residual HP damage.
 
 ## Handoff Rule
 
