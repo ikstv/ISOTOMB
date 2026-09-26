@@ -811,14 +811,7 @@ Status: APPROVED DECISION
 
 Endgame includes dynamic world events that can change sectors and raid conditions.
 
-Examples of event categories:
-
-- anomalous surges;
-- faction conflicts;
-- quarantines/blockades;
-- lost expeditions;
-- anomaly storms;
-- temporary traders/caravans.
+- Approved examples include anomalous surges and faction conflicts.
 
 Exact event list and frequency remain open.
 
@@ -829,13 +822,7 @@ Events must create meaningful reasons to choose specific sectors, not only incre
 Status: APPROVED DECISION
 
 - Faction power changes over time.
-- Power is influenced by:
-  - technology;
-  - resources;
-  - controlled sectors;
-  - losses;
-  - research/production capability;
-  - trade and player influence.
+- Technology affects faction power.
 - Faction strength must not be a static fixed number.
 
 ### D-064 — Factions Have Technological Specializations
@@ -944,7 +931,7 @@ Status: APPROVED DECISION
 - Trade prices and/or markups can depend on faction relations.
 - Poor relations may produce very large markups.
 - The previously discussed "up to +90%" is a balance example only, not a finalized value.
-- Friendly relations may improve prices and/or access.
+- Better relations may improve prices.
 
 Exact price formula remains open.
 
@@ -953,7 +940,7 @@ Exact price formula remains open.
 Status: APPROVED DECISION
 
 - Factions may temporarily visit/trade with the player's base or become available for a limited number of raids.
-- Their inventory and pricing may depend on faction relations and technology.
+- Pricing may depend on faction relations.
 - Exact visit duration and trader rotation rules remain open.
 
 ## Superseded Decisions
@@ -1173,13 +1160,11 @@ Status: OPEN QUESTION
 
 Status: OPEN QUESTION
 
-- Exact Armor Plate repair amount.
-- Exact Armor Repair Kit repair capacity/uses.
-- Exact improvised repair amount and Max Durability loss.
-- Exact Armor Workshop professional repair cost and duration.
 - Item compatibility.
+- Mechanical repair amounts for Armor Plates, Armor Repair Kits, and improvised repair.
+- Interaction with Armor Rating.
 - Whether any repair option has diminishing returns.
-- How repair choices interact with Armor Rating degradation.
+- Exact Max Durability behavior where still unresolved.
 
 ### OQ-010 — Item Deterioration
 
@@ -1207,11 +1192,11 @@ Status: OPEN QUESTION
 Status: OPEN QUESTION
 
 - Names.
-- Reputation.
-- Contracts.
-- Trading.
-- Exact specializations.
-- Exact technology progression model.
+- Contract types, generation, and rewards.
+- Exact reputation model.
+- Exact trading rules.
+- Exact specialization definitions.
+- Exact technology progression.
 - Exact sector-control rules.
 
 ### OQ-013 — Anomalies and Artifacts
@@ -1330,13 +1315,11 @@ Status: OPEN QUESTION
 
 Status: OPEN QUESTION
 
-- Exact Armor Plate repair amount.
-- Armor Repair Kit total capacity/charges.
-- Improvised repair conversion.
-- Max Durability loss formula.
+- Armor Repair Kit capacity/charges where relevant to resource economy.
 - Armor Workshop coupon cost.
 - Armor Workshop repair duration.
-- Interaction between Armor Rating and repairs.
+- Relative rarity/availability of repair resources.
+- Crafting/acquisition economics for repair resources.
 
 ### OQ-023 — Crafting Economy
 
@@ -1372,6 +1355,7 @@ Status: OPEN QUESTION
 - Time/raid-cycle resolution.
 - Technology adoption delay after learning.
 - Field-equipment rollout rate.
+- Candidate contributors to faction power requiring explicit approval: resources, controlled sectors, losses, research/production capability, and trade/player influence.
 
 ### OQ-026 — Faction Warfare and Sector Capture
 
@@ -1397,6 +1381,7 @@ Status: OPEN QUESTION
 - Rewards.
 - Interaction with faction control.
 - Interaction with persistent sectors.
+- Candidate event types such as quarantines/blockades, lost expeditions, and anomaly storms.
 
 ### OQ-028 — Global Map UX
 
