@@ -1698,8 +1698,6 @@ Status: OPEN QUESTION
 - Numerical calibration and exact `k` remain open.
 - Rounding and precision remain open.
 - Coverage aggregation within the unified armor system remains open.
-- Critical hits.
-- Damage types.
 - Armor Durability loss differences on penetrating versus non-penetrating hits.
 - Blunt Trauma formula.
 - Interaction between Trauma Reduction and relevant resistance.
@@ -1815,9 +1813,9 @@ Status: OPEN QUESTION
 
 - Item compatibility.
 - Mechanical repair amounts for Armor Plates, Armor Repair Kits, and improvised repair.
-- Interaction with Armor Rating.
 - Whether any repair option has diminishing returns.
-- Exact Max Durability behavior where still unresolved.
+- Exact red-capacity / Max Durability loss amounts where still unresolved.
+- Any still-unresolved interaction between repair method and item condition not already answered by D-111/D-112.
 
 ### OQ-010 — Item Deterioration
 
