@@ -961,7 +961,7 @@ Status: APPROVED DECISION
 - D-107 defines Blunt Trauma as an alternative stopped-hit outcome for ordinary bullet hits.
 - A failed penetration check does not cancel valid same-hit armor-breaking overflow if armor cannot absorb the remaining damage.
 
-Exact formula remains open.
+The stopped-bullet model is refined by D-113 through D-120.
 
 ### D-076 — Armor Impact / Trauma Protection
 
@@ -972,7 +972,7 @@ Status: APPROVED DECISION
 - This is not a separate armor bar or a separate armor system.
 - Damaged armor becomes worse at reducing transmitted Blunt Trauma.
 
-Exact formula and values remain open.
+The approved condition-degradation model is defined by D-115. Exact BaseTraumaReduction values remain open.
 
 ### D-077 — Body-Part Hit and Wound System
 
@@ -1083,6 +1083,8 @@ Local wounds use a small severity hierarchy:
 - Severe.
 
 - Repeated trauma to an already wounded body part may worsen the wound rather than creating unlimited duplicate copies.
+- For stopped-bullet blunt wounds, D-116 defines TraumaLoad as the severity source.
+- D-118 defines repeated blunt-hit severity as max(existing, this_hit).
 
 Exact thresholds and penalties remain open.
 
@@ -1094,6 +1096,7 @@ Status: APPROVED DECISION
 - A local wound represents damage to that body part and its functional consequences.
 - A Leg Wound may impair movement even after active bleeding has stopped.
 - Every wound penalty is not automatically duplicated inside Bleeding.
+- Under D-120, stopped-bullet blunt wounds do not automatically create Bleeding.
 
 ### D-088 — Wounds Do Not Fully Heal by Waiting During a Raid
 
@@ -1197,12 +1200,14 @@ Status: APPROVED DECISION
 - Pain is global for the whole character, not tracked independently for every body part.
 - Local wounds and relevant injuries can contribute to Pain.
 - Pain-suppressing items/effects do not automatically heal the underlying wound.
+- D-116 defines stopped-bullet TraumaLoad as a source of global Pain; `PainGain = TraumaLoad * p` is approved, while exact p remains open.
 
 ### D-098 — Pain Uses an Internal Numeric Value
 
 Status: APPROVED DECISION
 
 - Pain uses one internal numeric scale, conceptually 0–100.
+- The existing 0–100 model remains unchanged by D-116.
 - UI may later group that numeric value into readable severity bands.
 
 Exact thresholds and band thresholds remain open.
@@ -1214,6 +1219,7 @@ Status: APPROVED DECISION
 - High Pain reduces the character's maximum available AP.
 - Pain does not make every action individually more expensive.
 - A separate generic Pain accuracy penalty is not added without new owner approval.
+- D-116 does not add a generic Pain accuracy penalty; the existing maximum-AP behavior remains unchanged.
 - Accuracy penalties may still come from local wounds or other status effects.
 
 ### D-100 — Pain Persistence at Base
@@ -1371,7 +1377,7 @@ Preserve the existing D-075/D-076 constraints:
 - trauma is not based merely on closeness to the penetration threshold;
 - armor type and condition affect impact protection.
 
-Exact trauma thresholds, damage, and the interaction between Trauma Reduction and the relevant resistance remain open.
+The stopped-bullet model is resolved by D-113 through D-120. Exact coefficients, thresholds, and any remaining resistance interaction remain open.
 Do not count the same protection twice.
 
 ### D-108 — Ordinary Bullet Hit-Resolution Order
@@ -1399,7 +1405,7 @@ Record the following canonical conceptual order:
 
 5. Health-damage branch
    Apply the ordinary-bullet resistance once to damage directed toward HP.
-   For a fully armor-stopped hit, Blunt Trauma may apply instead, subject to D-107 and its still-unresolved calculation.
+   For a fully armor-stopped hit, the stopped-bullet Blunt Trauma branch applies under D-107 and D-113 through D-120.
 
 6. Consequences
    Apply the resulting durability and HP changes and resolve possible local wounds/associated states under their approved rules.
@@ -1536,7 +1542,8 @@ Approved starting model for balance evaluation; not validated as final gameplay 
 - Use the pre-hit value for the current hit under D-104.
 - Recalculate the changed state for subsequent hits.
 - This curve is not a resistance percentage or an absorption fraction.
-- Do not automatically apply it to Trauma Reduction or resistances.
+- D-115 is an approved explicit exception applying the same condition multiplier to Trauma Reduction.
+- Do not infer that this curve applies to damage-type resistances, radiation resistance, status resistances, or unrelated systems.
 
 Verification values:
 
@@ -1574,6 +1581,80 @@ Combined worked example (all inputs and results are illustrative):
 Do not retroactively apply `A_for_next_hit` to the current hit. Do not add Blunt Trauma to this penetrating hit. Do not generalize this example to other attack types.
 
 Separate absorption-stage check (all inputs and results are illustrative): `D = 60`, `f = 1/3`, `U = 15`, `k = 0.5` -> armor demand `40`, capacity `30`, absorbed `30`, overflow `10`, pre-resistance HP-directed damage `30`, durability loss `15`, remaining durability `0`. This check assumes `f` has already been calculated and does not establish upstream armor parameters.
+
+### D-113 — Stopped Ordinary Bullets Do Not Deal Direct HP Damage
+
+Status: APPROVED DECISION
+
+For an ordinary bullet fully stopped by character armor:
+
+- the stopped-bullet Blunt Trauma branch does not directly reduce global HP;
+- consequences are represented through Pain and possible local blunt wounds;
+- even a Severe blunt wound from this branch does not directly kill the character;
+- this branch must not reintroduce penetrating/overflow HP damage under another name;
+- penetration and overflow remain the routes for ordinary-bullet direct HP damage.
+
+This does not mean the hit has no consequences. It may cause substantial Pain and severe local functional injury. Do not add knockdown or hard stun; preserve D-075. Do not infer rules for other damage sources.
+
+### D-114 — Blunt Trauma Load Uses Absorbed Damage
+
+Status: APPROVED DECISION
+
+For a fully armor-stopped ordinary bullet:
+
+`TraumaLoad = AbsorbedDamage * (1 - EffectiveTraumaReduction)`
+
+TraumaLoad is derived from damage actually absorbed by armor, not from the numerical difference between Penetration and Armor Rating. It does not create another copy of incoming bullet damage. Evaluate this branch only when D-107 stopped-hit eligibility is met, with no penetration-derived HP path and no overflow HP path. Armor must have successfully absorbed the relevant damage.
+
+Exact numerical scale, representation, clamping, rounding, and final balance values for Trauma Reduction remain open. Do not invent a default percentage. Do not double-count any additional resistance system.
+
+### D-115 — Trauma Reduction Degrades With Armor Condition
+
+Status: APPROVED DECISION
+
+Armor Rating and Trauma Reduction are separate armor characteristics. Use the same approved armor-condition multiplier as D-112:
+
+`s = U / M_full`
+
+`condition_multiplier = 2*s - s*s`
+
+`EffectiveTraumaReduction = BaseTraumaReduction * condition_multiplier`
+
+BaseTraumaReduction is distinct from nominal Armor Rating A0. The same curve is shared for simplicity, while the underlying stats remain separate. M_full is the fully restored maximum; reduced M_available after improvised repair is not full condition. Do not apply this curve automatically to damage-type, radiation, or unrelated status resistances. Exact BaseTraumaReduction values remain open.
+
+### D-116 — TraumaLoad Drives Pain and Wound Severity
+
+Status: APPROVED DECISION
+
+The same resolved TraumaLoad drives both Pain gain and local blunt-wound severity. `PainGain = TraumaLoad * p`, where p is an open balance coefficient. Pain increases proportionally and may occur below the Light-wound threshold.
+
+Conceptual outcome ladder: no meaningful consequence; Pain only; Light blunt wound + Pain; Moderate blunt wound + Pain; Severe blunt wound + Pain. Wound severity uses thresholds of this same TraumaLoad. Do not add separate random rolls for Pain, wound creation, or wound severity. Exact thresholds and p remain open.
+
+### D-117 — No Hidden Sub-Threshold Trauma Accumulator
+
+Status: APPROVED DECISION
+
+Each stopped ordinary-bullet impact resolves its TraumaLoad independently. TraumaLoad below the Light-wound threshold does not accumulate in a hidden body-part meter. Weak hits may still add Pain under D-116; a later individually strong hit may create a wound.
+
+### D-118 — Repeated Blunt Hits Use Maximum Wound Severity
+
+Status: APPROVED DECISION
+
+For the same body part, `new_wound_severity = max(existing_wound_severity, this_hit_wound_severity)`. A weaker or equal blunt hit does not escalate a wound; a sufficiently strong hit may skip levels. This rule applies only to this blunt-impact model and is not a universal rule for every future wound type.
+
+### D-119 — Blunt Wound Consequences Are Body-Part Specific
+
+Status: APPROVED DECISION
+
+Use the existing hit-location model: Head, Torso, Left Arm, Right Arm, Left Leg, and Right Leg. Head wounds have head-specific consequences; torso wounds affect body performance; arm wounds affect the associated arm; leg wounds affect movement. Light/Moderate/Severe determines strength.
+
+Do not invent exact AP, accuracy, reload, movement, weapon-handling, or other penalty values. Preserve no generic automatic knockdown, no generic hard stun, and no generic Pain accuracy penalty unless separately approved.
+
+### D-120 — Stopped-Bullet Blunt Wounds Do Not Automatically Bleed
+
+Status: APPROVED DECISION
+
+A local blunt wound from a fully armor-stopped ordinary bullet does not automatically create Bleeding. Light, Moderate, or Severe blunt wounds may exist without Bleeding; wound and Bleeding remain separate under D-087. Another independently valid effect may still create Bleeding. Severe blunt wound is not hidden penetration and does not add blood loss merely because severity is high.
 
 ## Superseded Decisions
 
@@ -1688,6 +1769,7 @@ Status: OPEN QUESTION
 
 - Ordinary-bullet conceptual order is resolved by D-108.
 - Ordinary bullets may damage HP before complete armor depletion under D-102.
+- A fully armor-stopped ordinary bullet has no direct HP damage under D-113.
 - Ordinary-bullet penetration is deterministic under D-103.
 - Ordinary-bullet penetration uses pre-hit defense state under D-104.
 - Ordinary-bullet penetration and overflow use a non-duplicated shared damage budget under D-105.
@@ -1699,8 +1781,10 @@ Status: OPEN QUESTION
 - Rounding and precision remain open.
 - Coverage aggregation within the unified armor system remains open.
 - Armor Durability loss differences on penetrating versus non-penetrating hits.
-- Blunt Trauma formula.
-- Interaction between Trauma Reduction and relevant resistance.
+- Exact BaseTraumaReduction balance values.
+- TraumaLoad scale/representation, clamping, rounding, and precision.
+- TraumaLoad-to-Pain coefficient p and Light/Moderate/Severe thresholds.
+- Remaining interaction between Trauma Reduction and relevant resistance.
 - Body-part hit weighting.
 - Critical-hit behavior.
 - Wound generation from resolved hits.
@@ -2052,13 +2136,16 @@ Status: OPEN QUESTION
 
 Status: OPEN QUESTION
 
-- Body-part hit probabilities.
-- Wound-generation thresholds.
-- Exact Light/Moderate/Severe penalties.
-- Repeated-wound escalation.
-- Exact limb, head, and torso functional effects.
+- Resolved for stopped-bullet blunt wounds: severity comes from TraumaLoad thresholds.
+- Resolved for stopped-bullet blunt wounds: repeated blunt-hit severity uses max(existing, new).
+- Resolved for stopped-bullet blunt wounds: sub-threshold TraumaLoad does not accumulate into a hidden wound meter.
+- Resolved for stopped-bullet blunt wounds: body-part-specific functional consequences exist.
+- Exact TraumaLoad thresholds.
+- Exact Light/Moderate/Severe functional penalties.
+- Exact Head/Torso/Arm/Leg effects.
 - Treatment progression.
-- Whether all body parts use equal hit weighting.
+- Penetrating-hit wound-generation rules.
+- Body-part hit probabilities/weighting.
 
 ### OQ-030 — Bleeding
 
@@ -2070,6 +2157,7 @@ Status: OPEN QUESTION
 - Interaction with repeated injuries.
 - Treatment strength.
 - Whether movement/actions affect natural stabilization.
+- Resolved in this scope: stopped-bullet blunt wounds do not automatically create Bleeding under D-120.
 
 ### OQ-031 — Resistance Model
 
@@ -2090,7 +2178,8 @@ Status: OPEN QUESTION
 
 - Exact 0–100 thresholds.
 - Exact AP reduction curve.
-- Pain generation per wound/effect.
+- For stopped-bullet Blunt Trauma, Pain gain derives from TraumaLoad and `PainGain = TraumaLoad * p` is approved; exact p remains open.
+- Pain sources from other damage/wound types.
 - Pain suppression duration.
 - Base recovery rate.
 

@@ -118,6 +118,7 @@ For exact approved wording, proposal status, and open questions, use `docs/DECIS
 - Ordinary bullet damage uses a shared damage budget so penetration-derived HP damage and overflow are not duplicated.
 - Ordinary bullet resistance applies once after armor distribution.
 - Blunt Trauma is an alternative fully stopped-hit branch, not extra damage on top of penetration or armor-breaking overflow.
+- Stopped-bullet Blunt Trauma causes no direct global HP damage or automatic Bleeding; TraumaLoad drives Pain and local wound severity, with no hidden sub-threshold accumulator.
 
 For exact wording and status, see `docs/DECISIONS.md`.
 
@@ -127,7 +128,7 @@ Major unresolved areas include:
 
 - Exact Unity version and technical baseline.
 - Exact damage calibration, `k`, rounding, coverage aggregation, critical-hit, and non-bullet damage-type formulas.
-- Blunt Trauma boundary behavior and formula, body-part/wound resolution, bleeding behavior, resistance stacking/caps/rounding, and Pain thresholds/AP curve.
+- Exact TraumaLoad thresholds, Pain coefficient p, BaseTraumaReduction balance values, exact body-part blunt-wound functional penalties, and remaining resistance interaction.
 - Exact AP values and remaining action costs.
 - Radiation/armor thresholds and formulas.
 - NPC AI priorities and phase ordering details.
@@ -164,7 +165,7 @@ These are intentional design gates, not technical failures.
 
 ## Next Recommended Task
 
-Continue Superpowers brainstorming for OQ-001 to resolve the Blunt Trauma-versus-weak-penetration boundary without double-counting damage or silently changing approved rules.
+Continue Superpowers brainstorming for OQ-029 by defining the qualitative body-part-specific functional effects of Light, Moderate, and Severe blunt wounds for Head, Torso, Arms, and Legs without assigning final numerical balance values.
 
 ## Handoff Rule
 
