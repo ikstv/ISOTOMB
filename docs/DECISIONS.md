@@ -949,7 +949,7 @@ Status: APPROVED DECISION
 
 - A hit that fails to penetrate armor normally does not apply ordinary penetrating/bullet HP damage.
 - A sufficiently strong non-penetrating impact may still cause limited Blunt Trauma.
-- Ordinary non-penetrating firearm impacts must not automatically cause knockdown or hard stun.
+- Blunt Trauma from ordinary non-penetrating firearm impacts does not cause knockdown or hard stun.
 - Blunt Trauma is not calculated merely from how close the attack was to penetrating.
 
 Exact formula remains open.
@@ -1227,7 +1227,7 @@ Medical consumables are divided by purpose rather than one universal item:
 - Painkillers: intended for suppressing Pain without automatically healing the wound.
 - Anti-Rad: remains a separate radiation-management consumable under the existing radiation decisions.
 
-Exact item names, counts, charges, AP/time costs, wound reductions, HP restoration values, and rarity remain open. Specialized burn kits and additional specialist medicines are not approved.
+Exact item names, counts, charges, wound reductions, HP restoration values, and rarity remain open. AP/time costs remain open only for medical items not already covered by an approved decision. Medkit use remains 0 AP and does not advance world time under D-017. Splitting medical items by purpose does not revoke that rule or automatically assign the same cost to every new medical item. Specialized burn kits and additional specialist medicines are not approved.
 
 ## Superseded Decisions
 
@@ -1769,7 +1769,7 @@ Status: OPEN QUESTION
 - Bleeding control.
 - Wound-severity reduction.
 - Pain suppression.
-- AP/time costs for items not already explicitly covered by existing decisions.
+- AP/time costs for medical items not already explicitly covered by an approved decision.
 - Rarity and crafting.
 
 ## Proposals
