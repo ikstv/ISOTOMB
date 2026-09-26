@@ -1093,7 +1093,8 @@ Status: APPROVED DECISION
 - Bleeding primarily represents ongoing HP loss.
 - A local wound represents damage to that body part and its functional consequences.
 - A Leg Wound may impair movement even after active bleeding has stopped.
-- Every wound penalty is not automatically duplicated inside Bleeding.\n- Under D-120, stopped-bullet blunt wounds do not automatically create Bleeding.
+- Every wound penalty is not automatically duplicated inside Bleeding.
+- Under D-120, stopped-bullet blunt wounds do not automatically create Bleeding.
 
 ### D-088 — Wounds Do Not Fully Heal by Waiting During a Raid
 
@@ -1196,13 +1197,15 @@ Status: APPROVED DECISION
 - Pain is a separate character status.
 - Pain is global for the whole character, not tracked independently for every body part.
 - Local wounds and relevant injuries can contribute to Pain.
-- Pain-suppressing items/effects do not automatically heal the underlying wound.\n- D-116 defines stopped-bullet TraumaLoad as a source of global Pain; `PainGain = TraumaLoad * p` is approved, while exact p remains open.
+- Pain-suppressing items/effects do not automatically heal the underlying wound.
+- D-116 defines stopped-bullet TraumaLoad as a source of global Pain; `PainGain = TraumaLoad * p` is approved, while exact p remains open.
 
 ### D-098 — Pain Uses an Internal Numeric Value
 
 Status: APPROVED DECISION
 
-- Pain uses one internal numeric scale, conceptually 0–100.\n- The existing 0–100 model remains unchanged by D-116.
+- Pain uses one internal numeric scale, conceptually 0–100.
+- The existing 0–100 model remains unchanged by D-116.
 - UI may later group that numeric value into readable severity bands.
 
 Exact thresholds and band thresholds remain open.
@@ -1213,7 +1216,8 @@ Status: APPROVED DECISION
 
 - High Pain reduces the character's maximum available AP.
 - Pain does not make every action individually more expensive.
-- A separate generic Pain accuracy penalty is not added without new owner approval.\n- D-116 does not add a generic Pain accuracy penalty; the existing maximum-AP behavior remains unchanged.
+- A separate generic Pain accuracy penalty is not added without new owner approval.
+- D-116 does not add a generic Pain accuracy penalty; the existing maximum-AP behavior remains unchanged.
 - Accuracy penalties may still come from local wounds or other status effects.
 
 ### D-100 — Pain Persistence at Base
@@ -1536,7 +1540,8 @@ Approved starting model for balance evaluation; not validated as final gameplay 
 - Use the pre-hit value for the current hit under D-104.
 - Recalculate the changed state for subsequent hits.
 - This curve is not a resistance percentage or an absorption fraction.
-- D-115 is an approved explicit exception applying the same condition multiplier to Trauma Reduction.\n- Do not infer that this curve applies to damage-type resistances, radiation resistance, status resistances, or unrelated systems.
+- D-115 is an approved explicit exception applying the same condition multiplier to Trauma Reduction.
+- Do not infer that this curve applies to damage-type resistances, radiation resistance, status resistances, or unrelated systems.
 
 Verification values:
 
@@ -1761,7 +1766,8 @@ Open questions are NOT approved decisions and must not be answered by the agent.
 Status: OPEN QUESTION
 
 - Ordinary-bullet conceptual order is resolved by D-108.
-- Ordinary bullets may damage HP before complete armor depletion under D-102.\n- A fully armor-stopped ordinary bullet has no direct HP damage under D-113.
+- Ordinary bullets may damage HP before complete armor depletion under D-102.
+- A fully armor-stopped ordinary bullet has no direct HP damage under D-113.
 - Ordinary-bullet penetration is deterministic under D-103.
 - Ordinary-bullet penetration uses pre-hit defense state under D-104.
 - Ordinary-bullet penetration and overflow use a non-duplicated shared damage budget under D-105.
@@ -2148,7 +2154,8 @@ Status: OPEN QUESTION
 - Natural clotting duration.
 - Interaction with repeated injuries.
 - Treatment strength.
-- Whether movement/actions affect natural stabilization.\n- Resolved in this scope: stopped-bullet blunt wounds do not automatically create Bleeding under D-120.
+- Whether movement/actions affect natural stabilization.
+- Resolved in this scope: stopped-bullet blunt wounds do not automatically create Bleeding under D-120.
 
 ### OQ-031 — Resistance Model
 
