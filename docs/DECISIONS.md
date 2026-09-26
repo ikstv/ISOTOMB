@@ -1085,8 +1085,10 @@ Local wounds use a small severity hierarchy:
 - Repeated trauma to an already wounded body part may worsen the wound rather than creating unlimited duplicate copies.
 - For stopped-bullet blunt wounds, D-116 defines TraumaLoad as the severity source.
 - D-118 defines repeated blunt-hit severity as max(existing, this_hit).
+- D-125 defines how severity scales stopped-bullet blunt-wound functional effects.
+- D-129 defines that current severity determines the current local penalty.
 
-Exact thresholds and penalties remain open.
+Exact thresholds and penalties remain open. The D-125 and D-129 refinements apply only to the stopped-bullet blunt-wound model and are not generalized to every future wound type.
 
 ### D-087 — Wounds and Bleeding Are Separate Concepts
 
@@ -1201,6 +1203,8 @@ Status: APPROVED DECISION
 - Local wounds and relevant injuries can contribute to Pain.
 - Pain-suppressing items/effects do not automatically heal the underlying wound.
 - D-116 defines stopped-bullet TraumaLoad as a source of global Pain; `PainGain = TraumaLoad * p` is approved, while exact p remains open.
+- D-127 defines that local stopped-bullet blunt-wound effects and global Pain may coexist.
+- D-128 defines that Pain suppression does not remove unresolved local wound penalties.
 
 ### D-098 — Pain Uses an Internal Numeric Value
 
@@ -1221,6 +1225,8 @@ Status: APPROVED DECISION
 - A separate generic Pain accuracy penalty is not added without new owner approval.
 - D-116 does not add a generic Pain accuracy penalty; the existing maximum-AP behavior remains unchanged.
 - Accuracy penalties may still come from local wounds or other status effects.
+- Local wound penalties approved in D-121 through D-129 are separate from the Pain maximum-AP channel.
+- Do not convert every local wound into an additional automatic maximum-AP penalty.
 
 ### D-100 — Pain Persistence at Base
 
@@ -1244,6 +1250,8 @@ Medical consumables are divided by purpose rather than one universal item:
 - Anti-Rad: remains a separate radiation-management consumable under the existing radiation decisions.
 
 Exact item names, counts, charges, wound reductions, HP restoration values, and rarity remain open. AP/time costs remain open only for medical items not already covered by an approved decision. Medkit use remains 0 AP and does not advance world time under D-017. Splitting medical items by purpose does not revoke that rule or automatically assign the same cost to every new medical item. Specialized burn kits and additional specialist medicines are not approved.
+
+D-128 defines Pain suppression versus local wound penalties. D-129 defines how local penalties change when wound severity is actually reduced. Do not infer treatment amounts, AP costs, time costs, or resource costs from these cross-references.
 
 The D-102 through D-108 rules apply to ordinary bullet hits. Do not automatically extend this model to explosions and fragmentation, fire, radiation, electric weapons, melee, or other special damage sources.
 
@@ -1648,6 +1656,8 @@ Status: APPROVED DECISION
 
 Use the existing hit-location model: Head, Torso, Left Arm, Right Arm, Left Leg, and Right Leg. Head wounds have head-specific consequences; torso wounds affect body performance; arm wounds affect the associated arm; leg wounds affect movement. Light/Moderate/Severe determines strength.
 
+D-121 through D-124 define the approved qualitative stopped-bullet blunt-wound effects for Head, Torso, Arms, and Legs. D-125 defines the stopped-bullet severity semantics, and D-126 defines the approved multiple-wound and bilateral behavior.
+
 Do not invent exact AP, accuracy, reload, movement, weapon-handling, or other penalty values. Preserve no generic automatic knockdown, no generic hard stun, and no generic Pain accuracy penalty unless separately approved.
 
 ### D-120 — Stopped-Bullet Blunt Wounds Do Not Automatically Bleed
@@ -1655,6 +1665,259 @@ Do not invent exact AP, accuracy, reload, movement, weapon-handling, or other pe
 Status: APPROVED DECISION
 
 A local blunt wound from a fully armor-stopped ordinary bullet does not automatically create Bleeding. Light, Moderate, or Severe blunt wounds may exist without Bleeding; wound and Bleeding remain separate under D-087. Another independently valid effect may still create Bleeding. Severe blunt wound is not hidden penetration and does not add blood loss merely because severity is high.
+
+### D-121 — Head Blunt-Wound Functional Effects
+
+Status: APPROVED DECISION
+
+For stopped-bullet blunt wounds to the Head:
+
+Light:
+
+- small reduction to Vision;
+- small impairment to accuracy / aiming stability.
+
+Moderate:
+
+- stronger reduction to Vision;
+- stronger impairment to accuracy / aiming stability.
+
+Severe:
+
+- large reduction to Vision;
+- strong impairment to accuracy, aiming stability, and relevant precision-oriented actions.
+
+Preserve:
+
+- no automatic stun;
+- no automatic knockdown;
+- no direct instant death from this stopped-bullet blunt-wound branch;
+- no automatic hard disable.
+
+A Head wound does not independently create a separate maximum-AP penalty. Global Pain remains the system that can reduce maximum AP under D-099.
+
+Do not assign numerical Vision, accuracy, or aiming values. Do not create a generic Pain accuracy penalty.
+
+### D-122 — Torso Blunt-Wound Functional Effects
+
+Status: APPROVED DECISION
+
+For stopped-bullet blunt wounds to the Torso:
+
+Light:
+
+- small reduction in general physical effectiveness.
+
+Moderate:
+
+- noticeable reduction in physical endurance/performance;
+- noticeable impairment to actions requiring substantial physical effort.
+
+Severe:
+
+- strong general physical limitation.
+
+The Torso wound is intentionally broader than a limb wound but does not automatically become a universal penalty to every character statistic.
+
+Preserve:
+
+- no direct HP drain from the stopped-bullet blunt-wound branch;
+- no automatic Bleeding;
+- no separate automatic maximum-AP penalty on top of Pain;
+- no hard-disable mechanic.
+
+Do not invent a new named Endurance stat unless separately approved. "Physical endurance/performance" here is a qualitative gameplay effect, not authorization for a new character-stat architecture.
+
+Do not assign numerical penalties.
+
+### D-123 — Arm Blunt-Wound Functional Effects
+
+Status: APPROVED DECISION
+
+Left Arm and Right Arm use the same qualitative rules, but each wound is stored and resolved for the affected arm.
+
+Light:
+
+- small impairment to weapon handling / stability involving that arm.
+
+Moderate:
+
+- stronger impairment to aiming;
+- reload-related actions using that arm;
+- melee-related actions using that arm;
+- weapon handling / stability.
+
+Severe:
+
+- strong impairment to actions that depend on the affected arm;
+- two-handed actions are also impaired when the wounded arm is required.
+
+Severe does not automatically make the arm unusable.
+
+Do not introduce:
+
+- automatic arm disable;
+- automatic weapon drop;
+- automatic inability to shoot;
+- automatic inability to reload;
+- automatic inability to perform melee.
+
+Any such hard-disable behavior requires separate owner approval.
+
+Exact action mapping and numerical penalties remain open.
+
+### D-124 — Leg Blunt-Wound Functional Effects
+
+Status: APPROVED DECISION
+
+Left Leg and Right Leg use the same qualitative rules, but each wound is stored and resolved for the affected leg.
+
+Light:
+
+- small impairment to mobility.
+
+Moderate:
+
+- stronger impairment to movement efficiency;
+- stronger impairment to Evasion benefits that depend on movement.
+
+Severe:
+
+- strong mobility limitation.
+
+Preserve:
+
+- no automatic knockdown;
+- no automatic immobilization;
+- no automatic inability to move.
+
+Leg blunt wounds primarily affect movement/mobility and movement-related Evasion rather than directly applying a generic shooting-accuracy penalty.
+
+Do not invent numerical movement, AP, or Evasion values.
+
+### D-125 — Wound Severity Scales the Same Functional Effect
+
+Status: APPROVED DECISION
+
+For the stopped-bullet blunt-wound model, Light, Moderate, and Severe primarily change the strength of the body-part-specific functional effect.
+
+Increasing severity does not automatically unlock a new hard-disable mechanic.
+
+Examples of behavior not automatically created by Severe severity:
+
+- cannot shoot;
+- cannot walk;
+- arm disabled;
+- leg disabled;
+- automatic stun;
+- automatic knockdown.
+
+Such hard-disable mechanics require separate owner approval.
+
+This rule does not prohibit future wound types from having different rules if separately approved.
+
+### D-126 — Multiple and Bilateral Blunt Wounds
+
+Status: APPROVED DECISION
+
+Each body-part wound remains a separate local wound.
+
+For paired limbs:
+
+- Left Arm and Right Arm wounds remain separate;
+- Left Leg and Right Leg wounds remain separate.
+
+If both paired limbs are wounded, their functional effects may combine when they influence the same activity.
+
+Examples:
+
+- two wounded arms may impair a two-handed action more than one wounded arm;
+- two wounded legs may impair mobility more than one wounded leg.
+
+However:
+
+- do not define the combination as simple linear addition;
+- do not assume `1 + 1 = 2` penalty scaling;
+- do not invent hidden multipliers.
+
+Exact bilateral / same-function stacking remains an OPEN balance rule.
+
+Wounds on different body parts may apply their different local functional effects simultaneously.
+
+There is no approved universal "wound penalty cap" that causes unrelated local wound effects to disappear.
+
+If several wounds affect the same final characteristic, the exact stacking formula remains open.
+
+### D-127 — Local Wound Effects and Pain Are Separate Consequences
+
+Status: APPROVED DECISION
+
+Local functional wound penalties and global Pain may apply at the same time.
+
+Examples:
+
+- Head wound may reduce Vision / aiming effectiveness;
+- Arm wound may impair weapon handling;
+- Leg wound may impair mobility;
+- Torso wound may impair general physical performance;
+- Pain independently affects maximum AP under D-099.
+
+Pain does not replace the local wound penalty.
+
+The local wound penalty does not replace Pain.
+
+Do not duplicate the same mechanic accidentally:
+
+- local wound effects should remain body-part/function specific;
+- Pain remains the global Pain system.
+
+Exact numerical interaction remains balance work.
+
+### D-128 — Pain Suppression Does Not Remove Local Wound Effects
+
+Status: APPROVED DECISION
+
+Suppressing or reducing Pain does not automatically suppress the local functional penalty caused by an unresolved wound.
+
+For example:
+
+- reducing Pain does not restore Vision lost to a Head wound;
+- reducing Pain does not restore weapon handling lost to an Arm wound;
+- reducing Pain does not restore mobility lost to a Leg wound.
+
+Painkillers therefore may reduce Pain and its Pain-related consequences without healing or functionally removing the underlying local wound.
+
+Preserve D-101: Painkillers are for Pain suppression and do not automatically heal wounds.
+
+Do not infer AP/time costs or treatment values from this decision.
+
+### D-129 — Functional Penalty Tracks Current Wound Severity
+
+Status: APPROVED DECISION
+
+The local functional penalty is determined by the wound's current severity, not by the worst severity the wound had earlier.
+
+If treatment changes:
+
+- Severe -> Moderate, use the Moderate functional-effect level;
+- Moderate -> Light, use the Light functional-effect level;
+- wound fully removed/healed, remove that local wound's functional penalty.
+
+This does not mean Pain must automatically change at the same moment.
+
+Pain remains a separate state.
+
+A treatment that reduces wound severity changes Pain only if that treatment has an independently approved Pain effect.
+
+This decision does not define:
+
+- exact treatment items;
+- exact number of severity steps restored;
+- exact treatment success rules;
+- treatment AP/time costs;
+- treatment resource costs.
+
+Those remain open.
 
 ## Superseded Decisions
 
@@ -2139,10 +2402,22 @@ Status: OPEN QUESTION
 - Resolved for stopped-bullet blunt wounds: severity comes from TraumaLoad thresholds.
 - Resolved for stopped-bullet blunt wounds: repeated blunt-hit severity uses max(existing, new).
 - Resolved for stopped-bullet blunt wounds: sub-threshold TraumaLoad does not accumulate into a hidden wound meter.
-- Resolved for stopped-bullet blunt wounds: body-part-specific functional consequences exist.
+- Resolved for stopped-bullet blunt wounds: qualitative Head effects involve Vision and aiming/accuracy/stability.
+- Resolved for stopped-bullet blunt wounds: qualitative Torso effects involve general physical effectiveness/endurance.
+- Resolved for stopped-bullet blunt wounds: qualitative Arm effects involve weapon handling, aiming, reload, melee, and two-handed actions.
+- Resolved for stopped-bullet blunt wounds: qualitative Leg effects involve mobility and movement-related Evasion.
+- Resolved for stopped-bullet blunt wounds: severity changes effect strength rather than automatically enabling hard disables.
+- Resolved for stopped-bullet blunt wounds: bilateral wounds may combine.
+- Resolved for stopped-bullet blunt wounds: different body-part local effects may coexist.
+- Resolved for stopped-bullet blunt wounds: there is no universal wound-effect cap.
+- Resolved for stopped-bullet blunt wounds: local wound effects and global Pain coexist.
+- Resolved for stopped-bullet blunt wounds: Pain suppression does not remove unresolved local wound penalties.
+- Resolved for stopped-bullet blunt wounds: current wound severity determines the current local penalty.
 - Exact TraumaLoad thresholds.
 - Exact Light/Moderate/Severe functional penalties.
-- Exact Head/Torso/Arm/Leg effects.
+- Exact parameter mapping for each body-part effect.
+- Exact bilateral stacking formula.
+- Exact same-characteristic stacking when several wounds affect one resulting stat/function.
 - Treatment progression.
 - Penetrating-hit wound-generation rules.
 - Body-part hit probabilities/weighting.
@@ -2176,6 +2451,9 @@ Status: OPEN QUESTION
 
 Status: OPEN QUESTION
 
+- Resolved for the stopped-bullet blunt-wound interaction: Pain and local wound effects are separate and may coexist.
+- Resolved for the stopped-bullet blunt-wound interaction: Pain suppression does not automatically remove local wound penalties.
+- Exact Pain coefficient p.
 - Exact 0–100 thresholds.
 - Exact AP reduction curve.
 - For stopped-bullet Blunt Trauma, Pain gain derives from TraumaLoad and `PainGain = TraumaLoad * p` is approved; exact p remains open.
